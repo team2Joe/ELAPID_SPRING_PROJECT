@@ -15,7 +15,7 @@ public class EMyPageCommand implements ECommand {
 		HttpSession session = request.getSession();
 		String uid = (String)session.getAttribute("uid");
 		
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		UserDto dto = new UserDto();
 		
 		dto = dao.profileView(uid);

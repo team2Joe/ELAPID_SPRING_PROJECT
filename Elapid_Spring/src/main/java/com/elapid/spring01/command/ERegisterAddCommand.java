@@ -13,7 +13,7 @@ public class ERegisterAddCommand implements ECommand {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		String uid = (String) session.getAttribute("uid");
 		String uname = request.getParameter("uname");
 		String utel = request.getParameter("utel");

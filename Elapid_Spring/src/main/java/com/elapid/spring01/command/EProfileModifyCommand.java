@@ -12,7 +12,7 @@ public class EProfileModifyCommand implements ECommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		
 		String uid = (String)session.getAttribute("uid");
 		String upwd = request.getParameter("upassword");

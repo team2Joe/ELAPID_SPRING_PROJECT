@@ -22,7 +22,7 @@ public class EUserOrderCommand implements ECommand {
 		
 		OrderDao oDao = new OrderDao();
 		CartOrderDao cDao = new CartOrderDao();
-		UserDao uDao = new UserDao();
+		UserDao2 uDao = new UserDao2();
 		
 		String uid = (String) session.getAttribute("uid");
 		int add_id = Integer.parseInt(request.getParameter("uo_address"));		

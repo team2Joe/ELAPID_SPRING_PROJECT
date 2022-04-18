@@ -13,7 +13,7 @@ public class ERegisterDeleteCommand implements ECommand {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		String uid = (String) session.getAttribute("uid");
 		int add_id = Integer.parseInt(request.getParameter("add_id")); 
 		

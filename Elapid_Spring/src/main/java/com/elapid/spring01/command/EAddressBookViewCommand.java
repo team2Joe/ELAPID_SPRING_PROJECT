@@ -20,7 +20,7 @@ public class EAddressBookViewCommand implements ECommand {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		ArrayList<RegisterJoinDto> dtos = new ArrayList<RegisterJoinDto>();
 		String uid = (String) session.getAttribute("uid"); 
 		
