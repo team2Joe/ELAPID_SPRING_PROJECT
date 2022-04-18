@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -78,4 +79,5 @@ function init(){
 		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
 	</form>
 </body>
+
 </html>
