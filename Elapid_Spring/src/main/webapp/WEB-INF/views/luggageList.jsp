@@ -1,8 +1,8 @@
 
-<%@page import="com.elapid.dto.ProductListDto"%>
-<%@page import="com.elapid.dto.ProductDto"%>
+<%@page import="com.elapid.spring01.dto.ProductListDto"%>
+<%@page import="com.elapid.spring01.dto.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>

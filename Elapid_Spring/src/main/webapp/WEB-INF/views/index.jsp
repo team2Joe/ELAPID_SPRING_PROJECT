@@ -7,7 +7,7 @@
 <div class="accordion" id="accordionExample" align="center">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button onclick="location.href='interestedProductList.do'" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button onclick="location.href='interestedProductList'" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         조회수 상품 TOP 3
       </button>
     </h2>
