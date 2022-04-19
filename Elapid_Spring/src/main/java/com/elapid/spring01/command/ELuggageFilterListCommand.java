@@ -1,28 +1,31 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dto.ProductListDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.ProductDao;
 
 public class ELuggageFilterListCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
 		
+			ProductDao dao = sqlSession.getMapper(ProductDao.class);
+		
+			Map<String, Object> map = model.asMap();
+			HttpServletRequest request = (HttpServletRequest)map.get("request");
+			
 			String[] ctg_middle = request.getParameterValues("ctg_middle");
 			String[] ps_color = request.getParameterValues("ps_color");
 			String[] p_mainf = request.getParameterValues("p_mainf");
 
-			ArrayList<ProductListDto> dtos = new ArrayList<ProductListDto>();
-			
-			ProductDao dao = new ProductDao();
-			
-			ProductDao countDao = new ProductDao();
-			
 			// productDao메서드 파라미터에 전달할 where조건 기본 쿼리문
 			String query = " where ctg_main = 'luggage'";
 			
@@ -101,7 +104,7 @@ public class ELuggageFilterListCommand implements ECommand {
 				}		
 			}
 			
-			int count = countDao.productCount(query);
+			int count = dao.productCountDao(query);
 
 			String tempStart = request.getParameter("page");
 			
@@ -117,21 +120,27 @@ public class ELuggageFilterListCommand implements ECommand {
 				startPage = (Integer.parseInt(tempStart)-1)*onePageCount;
 			}
 			
-			dtos = dao.luggageFilterList(ctg_middle, ps_color, p_mainf, startPage, onePageCount);
+			
 	
 			System.out.println(count);
 			
 			// 페이지 수 request로 보내기
-			request.setAttribute("count", count);
+			model.addAttribute("count", count);
 			
 			// 초기 필터링시 받아온 배열값들 페이징 버튼에 전달해주기
-			request.setAttribute("ctg_middle", ctg_middle);
-			request.setAttribute("ps_color", ps_color);
-			request.setAttribute("p_mainf", p_mainf);
+			model.addAttribute("ctg_middle", ctg_middle);
+			model.addAttribute("ps_color", ps_color);
+			model.addAttribute("p_mainf", p_mainf);
 			
-			request.setAttribute("list", dtos);
+			model.addAttribute("list", dao.luggageFilterListDao(ctg_middle, ps_color, p_mainf, startPage, onePageCount));
 
 			
+	}
+
+	@Override
+	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

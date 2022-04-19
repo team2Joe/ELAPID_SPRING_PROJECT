@@ -65,7 +65,7 @@ request.setCharacterEncoding("utf-8");
 	    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
 	      <ul class="navbar-nav">
 	        <li class="nav-item dropdown">
-	          <a class="nav-link" onclick="navbtnlinkluggage()" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link" onclick="navbtnlinkluggage()"  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 	            캐리어
 	          </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">

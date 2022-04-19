@@ -46,4 +46,18 @@
 	<beans:bean name="eProfileModify" class = "com.elapid.spring01.command.EProfileModifyCommand"/>
 	<beans:bean name="eProfileDelete" class = "com.elapid.spring01.command.EProfileDeleteCommand"/>
 	
+	
+	<beans:bean name="luggageList" class="com.elapid.spring01.command.ELuggageListCommand" />
+	<beans:bean name="luggageFilterList" class="com.elapid.spring01.command.ELuggageFilterListCommand" />
+	<!-- <beans:bean name="interestedProductList" class="com.elapid.spring01.command.EInterestedProductListCommand" />
+	 <beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
+	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> -->
+	
 </beans:beans>
+
+
+
+
+
+
+
