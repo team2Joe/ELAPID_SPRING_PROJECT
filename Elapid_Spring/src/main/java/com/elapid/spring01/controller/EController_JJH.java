@@ -33,13 +33,6 @@ public class EController_JJH {
 
 	}
 	
-	//메인 화면
-//	@RequestMapping("main")
-//	public String main() {
-//		
-//		return "index";
-//	}
-	
 	//캐리어 전체 리스트 
 	@RequestMapping("luggageList")
 	public String luggageList(HttpServletRequest request, Model model) {
