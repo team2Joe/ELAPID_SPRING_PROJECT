@@ -46,11 +46,11 @@ public class EController_Uyoung {
 
 	/* CartView */
 	@RequestMapping("/cartView")
-	public String cart_View(Model model, HttpSession session) {
+	public String cart_View(Model model, HttpSession session, HttpServletRequest request) {
 
 		System.out.println("cart_View");
 
-		cartViewCommand.execute_session(sqlSession, model, session, null);
+		cartViewCommand.execute_session(sqlSession, model, session, request);
 		return "userCartView";
 	}
 

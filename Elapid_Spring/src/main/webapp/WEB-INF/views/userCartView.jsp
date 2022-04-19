@@ -83,7 +83,7 @@
 			<h5>총 계</h5>
 			<h4>
 				<fmt:formatNumber
-					value="${cart_View.get(User_Cart.size()-1).cart_totalamount}" pattern="#,###,###" />원
+					value="${cart_View.get(cart_View.size()-1).cart_totalamount}" pattern="#,###,###" />원
 			</h4>
 		</div><!-- 중앙! -->
 	</div><!-- 2분할! -->
