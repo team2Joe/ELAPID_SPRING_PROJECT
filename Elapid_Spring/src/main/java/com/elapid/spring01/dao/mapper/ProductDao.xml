@@ -80,4 +80,39 @@
 		</if>
 		LIMIT #{param4}, #{param5};		
 	</select>
+	
+	<select id="detailViewDao" resultType="com.elapid.spring01.dto.ProductDetailDto" >
+		SELECT * FROM PRODUCT_IMAGE I
+		JOIN IMAGE_DETAIL ID 
+		ON I.IMG_ID = ID.IMG_ID
+		JOIN PRODUCT P
+		ON P.P_ID = ID.P_ID
+		JOIN CATEGORY_DETAIL CD
+		ON P.P_ID = CD.P_ID
+		JOIN CATEGORY C
+		ON C.CTG_ID = CD.CTG_ID
+		JOIN PRODUCT_DETAIL PD
+		ON PD.P_ID = P.P_ID
+		JOIN PRODUCT_SPEC S
+		ON S.PS_ID = PD.PS_ID
+		WHERE P.P_ID = #{param1};
+	</select>
+	
+	<select id="searchDao" resultType="com.elapid.spring01.dto.ProductListDto">
+		SELECT * FROM PRODUCT_IMAGE I
+		JOIN IMAGE_DETAIL ID 
+		ON I.IMG_ID = ID.IMG_ID
+		JOIN PRODUCT P
+		ON P.P_ID = ID.P_ID
+		JOIN CATEGORY_DETAIL CD
+		ON P.P_ID = CD.P_ID
+		JOIN CATEGORY C
+		ON C.CTG_ID = CD.CTG_ID
+		JOIN PRODUCT_DETAIL PD
+		ON PD.P_ID = P.P_ID
+		JOIN PRODUCT_SPEC S
+		ON S.PS_ID = PD.PS_ID
+		WHERE ${param1} LIKE '%${param2}%';
+	</select>
+	
 </mapper>

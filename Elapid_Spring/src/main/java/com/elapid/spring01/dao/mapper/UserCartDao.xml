@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.elapid.spring01.dao.UserCartDao">
+    
+    <insert id="AddCartDao">
+    	INSERT INTO CART_DETAIL (P_ID,CART_ID) VALUES (#{param1}, (SELECT CART_ID FROM CART WHERE U_ID = #{param2}))
+    </insert>
+    
+    <select id="CartViewDao" resultType="com.elapid.spring01.dto.CartViewDto">
+    	SELECT U.U_ID, P.P_ID, P.P_NAME, P.P_PRICE, P.P_COLORNAME, P.P_SIZE,
+							P.P_DISCOUNTPRICE ,CD.CD_ID, C.CART_ID, IMG_THUM, CTG_MIDDLE 
+							FROM PRODUCT AS P 
+							INNER JOIN CART_DETAIL AS CD 
+							ON P.P_ID = CD.P_ID 
+							INNER JOIN CART AS C 
+							ON CD.CART_ID = C.CART_ID 
+							INNER JOIN USER AS U 
+							ON C.U_ID = U.U_ID 
+							INNER JOIN IMAGE_DETAIL AS IMGD 
+							ON IMGD.P_ID = P.P_ID 
+							INNER JOIN PRODUCT_IMAGE AS PIMG 
+							ON IMGD.IMG_ID = PIMG.IMG_ID 
+							INNER JOIN CATEGORY_DETAIL AS CTGD 
+							ON P.P_ID = CTGD.P_ID 
+							INNER JOIN CATEGORY AS CTG 
+							ON CTG.CTG_ID = CTGD.CTG_ID 
+							WHERE C.CART_ID = (SELECT CART_ID FROM CART WHERE U_ID = #{param1}) 
+    </select>
+    	
+    
+    </mapper>

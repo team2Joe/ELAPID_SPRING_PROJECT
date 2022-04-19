@@ -1,29 +1,38 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dto.ProductDto;
-import com.elapid.dto.ProductListDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.ProductDao;
+
 
 public class ESearchCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
+		
+		ProductDao dao = sqlSession.getMapper(ProductDao.class);
+		Map<String, Object> map = model.asMap();
+		
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String search = request.getParameter("search");
-		String category = request.getParameter("category");
+		String category = request.getParameter("category");		
 		
-		ProductDao dao = new ProductDao();
-		
-		ArrayList<ProductListDto> dtos = new ArrayList<ProductListDto>();
+		model.addAttribute("list", dao.searchDao(category, search));
+	}
 
-		dtos = dao.search(search, category);
+	@Override
+	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
+		// TODO Auto-generated method stub
 		
-		request.setAttribute("list", dtos);
 	}
 
 }

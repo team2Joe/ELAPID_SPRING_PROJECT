@@ -20,15 +20,15 @@ public class EController_JJH {
 	private ECommand luggageList = null;
 	private ECommand luggageFilterList = null;
 //	private ECommand interestedProductList = null;
-//	private ECommand detailView = null;
+	private ECommand detailView = null;
 //	private ECommand search = null;
 	
 	@Autowired
-	public void auto(ECommand luggageList, ECommand luggageFilterList) {
+	public void auto(ECommand luggageList, ECommand luggageFilterList, ECommand detailView) {
 		this.luggageList = luggageList;
 		this.luggageFilterList = luggageFilterList;
 //		this.interestedProductList = interestedProductList;
-//		this.detailView = detailView;
+		this.detailView = detailView;
 //		this.search = search;
 
 	}
@@ -55,14 +55,20 @@ public class EController_JJH {
 	
 	//제품 상세 페이지
 	@RequestMapping("detailView")
-	public String detailView() {
+	public String detailView(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		detailView.execute(sqlSession, model);
 		
 		return "detailView";
 	}
 	
 	//검색 목록 출력
 	@RequestMapping("search")
-	public String searchList() {
+	public String searchList(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		detailView.execute(sqlSession, model);
 		
 		return "searchList";
 	}	
