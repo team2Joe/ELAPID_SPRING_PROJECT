@@ -148,9 +148,6 @@ function qnaregister() {
 	
 	location.href = "questionList";
 }
-	
-
-
 
 function qnawrite() {
 

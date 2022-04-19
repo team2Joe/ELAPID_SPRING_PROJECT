@@ -21,7 +21,7 @@
 <body>
 
 <body>
-<Form action="questionModify.do" id ="contentForm">
+<Form action="questionModify" id ="contentForm">
 
 
 
@@ -92,7 +92,7 @@
      <button type="button" class="btn btn-dark" onclick="qnadelete()">삭제하기</button></td>
      </tr></table>
 
-<script src="js/basic.js"></script>
+<script src="resources/js/basic.js"></script>
 </body>
 </html>
 <%@ include file="layout/footer.jsp" %>

@@ -1,5 +1,5 @@
-<%@page import="com.elapid.dto.ProductQuestionDto"%>
-<%@page import="java.util.ArrayList"%>
+<%-- <%@page import="com.elapid.spring01.dto.ProductQuestionDto"%>
+<%@page import="java.util.ArrayList"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -21,7 +21,7 @@
 <BR>
 </div>
 
-<form action="questionWrite.do" method="post">
+<form action="questionWrite" method="post">
 <table class="table w-auto" style="margin-left: auto; margin-right: auto;">
    <colgroup>
         <col width="150px"/>
@@ -39,11 +39,11 @@
   </thead>
   <tbody>
   
-   <c:forEach items="${QuestionList }" var ="dtos">
+   <c:forEach items="${questionList }" var ="dto">
     <tr>
-  	   <th scope="col" class="text-center"><a href="questionContentView.do?pq_id=${dtos.pq_id}"> ${dtos.pq_id}</a></th>
-	   <th scope="col" class="text-center"> ${dtos.qc_name }</th>
-	   <th scope="col" class="text-center"> ${dtos.pq_title }</th>
+  	   <th scope="col" class="text-center"><a href="questionContentView?pq_id=${dto.pq_id}"> ${dto.pq_id}</a></th>
+	   <th scope="col" class="text-center"> ${dto.qc_name }</th>
+	   <th scope="col" class="text-center"> ${dto.pq_title }</th>
 		<td></td>
     </tr>
    </c:forEach>
@@ -64,7 +64,7 @@
 <br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br>
 
-<script src="js/basic.js"></script>
+<script src="resources/js/basic.js"></script>
 </body>
 </html>
 
