@@ -1,18 +1,30 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
+
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.UserDao;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.UserDao;
 
 public class EProfileModifyCommand implements ECommand {
 
+	
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		UserDao2 dao = new UserDao2();
+	public void execute(SqlSession sqlSession,Model model) {
+		
+	}
+	
+	@Override
+	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
+		
+		session = request.getSession();
+		UserDao dao = sqlSession.getMapper(UserDao.class);
 		
 		String uid = (String)session.getAttribute("uid");
 		String upwd = request.getParameter("upassword");
@@ -25,7 +37,9 @@ public class EProfileModifyCommand implements ECommand {
 		String birthday = request.getParameter("birthday");
 		String ubirthdate = birthyear + "-" +birthmonth + "-" + birthday;
 		
-		dao.profileModify(uid, uemail, upwd, utel, ugender, ubirthdate);
+		System.out.println(uid +"*********************"+ ubirthdate );
+		
+		dao.profileModify(uemail, upwd, utel, ugender, ubirthdate,uid);
 		
 	}
 

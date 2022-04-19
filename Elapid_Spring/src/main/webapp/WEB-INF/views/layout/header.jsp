@@ -6,7 +6,7 @@
 //%@ include file="/layout/header.jsp"%
 request.setCharacterEncoding("utf-8");
 %>
-<html>
+<html lang="kr">
 <head>
 <meta name ="google-signin-client_id" content="246093648725-rl5r5kcmpm4vh48r4k1l2rferndnjohm.apps.googleusercontent.com">
 
@@ -41,7 +41,7 @@ request.setCharacterEncoding("utf-8");
 </script>
 </head>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link href="css/basic.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/basic.css" rel="stylesheet" type="text/css" />
 <body>
 
 	          <%
@@ -58,7 +58,7 @@ request.setCharacterEncoding("utf-8");
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="main.do">ELAPID</a>
+	    <a class="navbar-brand" href="main">ELAPID</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -71,9 +71,9 @@ request.setCharacterEncoding("utf-8");
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 	            <li><h5>&nbsp&nbsp크기</h5></li>
 	            <li></li>
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=small">기내용</a></li>
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=middle">중형수화물</a></li>
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=large">대형수화물</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=small">기내용</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=middle">중형수화물</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=large">대형수화물</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -83,9 +83,9 @@ request.setCharacterEncoding("utf-8");
 	          	백팩
 	          </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=business">비즈니스</a></li>
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=casual">캐주얼</a></li>
-	            <li><a class="dropdown-item" href="middleView.do?ctg_middle=other">other</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=business">비즈니스</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=casual">캐주얼</a></li>
+	            <li><a class="dropdown-item" href="middleView?ctg_middle=other">other</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -97,10 +97,10 @@ request.setCharacterEncoding("utf-8");
 	          </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 	          	<li><h5>&nbsp&nbsp크기</h5></li>
-	            <li><a class="dropdown-item" href="functionList.do?p_mainf=서스펜션휠">서스펜션 휠</a></li>
-	            <li><a class="dropdown-item" href="functionList.do?p_mainf=자동제어장치">자동제어장치</a></li>
-	            <li><a class="dropdown-item" href="functionList.do?p_mainf=지문인식">지문인식 장치</a></li>
-	            <li><a class="dropdown-item" href="functionList.do?p_mainf=rfid">RFID</a></li>
+	            <li><a class="dropdown-item" href="functionList?p_mainf=서스펜션휠">서스펜션 휠</a></li>
+	            <li><a class="dropdown-item" href="functionList?p_mainf=자동제어장치">자동제어장치</a></li>
+	            <li><a class="dropdown-item" href="functionList?p_mainf=지문인식">지문인식 장치</a></li>
+	            <li><a class="dropdown-item" href="functionList?p_mainf=rfid">RFID</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -130,7 +130,7 @@ request.setCharacterEncoding("utf-8");
 	      </ul>
 	      <ul class="navbar-nav">
 	        <li class="nav-item dropdown">
-	          <a class="nav-link" onclick="location.href='questionList.do'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link" onclick="location.href='questionList'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 	          	상품문의
 	          </a>
 	        </li>
@@ -159,7 +159,7 @@ request.setCharacterEncoding("utf-8");
 	          			
 	         %>
 	        <li class="nav-item dropdown">
-	          <a href="logout.do" class="nav-link">
+	          <a href="logout" class="nav-link">
 	            <U>log out</U>
 	          </a>
 	        </li> 			
@@ -181,8 +181,8 @@ request.setCharacterEncoding("utf-8");
 	         	 	if(!uid.equals("")){
 	          		
 	          %>
-	            <li><a class="dropdown-item" href="myPage.do">마이페이지</a></li>
-	            <li><a class="dropdown-item" href="logout.do">로그 아웃</a></li>
+	            <li><a class="dropdown-item" href="myPage">마이페이지</a></li>
+	            <li><a class="dropdown-item" href="logout">로그 아웃</a></li>
 			  <%
 	          		}
 			  %>	          		
@@ -191,7 +191,7 @@ request.setCharacterEncoding("utf-8");
 	          		
 			  %>
 	            <li><a class="dropdown-item" href="">주문내용확인</a></li>
-	            <li><a class="dropdown-item" href="loginForm.do">로그인하기</a></li>
+	            <li><a class="dropdown-item" href="loginForm">로그인하기</a></li>
 	          <%
 	          	}
 	          %>
@@ -200,7 +200,7 @@ request.setCharacterEncoding("utf-8");
 	        </li>
 
 	        <li class="nav-item dropdown">
-	          <a href="userCartView.do" class="nav-link" style="text-decoration:none">
+	          <a href="userCartView" class="nav-link" style="text-decoration:none">
 	            <U>장바구니</U>
 	          </a>
 	        </li>
@@ -209,7 +209,7 @@ request.setCharacterEncoding("utf-8");
 	  </div>
 
 	  <div>
-	  <form class="d-flex" action="search.do" >
+	  <form class="d-flex" action="search" >
 	  	<select name="category">
 	  		<option value="p.p_name">상품명</option>
 	  		<option value="p.p_size">사이즈</option>

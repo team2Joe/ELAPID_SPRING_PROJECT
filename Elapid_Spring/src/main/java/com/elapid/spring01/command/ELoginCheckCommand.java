@@ -1,17 +1,14 @@
 package com.elapid.spring01.command;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.UserDao;
-import com.springlec.base0801.dao.IDao;
 
 
 public class ELoginCheckCommand implements ECommand {
@@ -23,14 +20,14 @@ public class ELoginCheckCommand implements ECommand {
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model,HttpSession session,HttpServletRequest request) {
 
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
 		session = request.getSession();
 		UserDao dao = sqlSession.getMapper(UserDao.class);
 		String uid = "";
 
 		//UserLogDao lDao = new UserLogDao();
 		
-		Map<String, Object> map = model.asMap();
-		request = (HttpServletRequest) map.get("request");
 		
 		
 		uid = request.getParameter("uid");

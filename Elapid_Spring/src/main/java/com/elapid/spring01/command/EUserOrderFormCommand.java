@@ -1,23 +1,30 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.OrderDao;
-import com.elapid.dao.UserDao;
-import com.elapid.dto.ProductListDto;
-import com.elapid.dto.RegisterJoinDto;
-import com.elapid.dto.UserDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.OrderDao;
+import com.elapid.spring01.dto.ProductListDto;
+import com.elapid.spring01.dto.RegisterJoinDto;
+import com.elapid.spring01.dto.UserDto;
+import com.elapid.spring01.dao.UserDao2;
 
 public class EUserOrderFormCommand implements ECommand {
 
+	
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+		
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
+		
+		session = request.getSession();
 		
 		UserDao2 dao = new UserDao2();
 		String uid = (String) session.getAttribute("uid");
@@ -67,11 +74,13 @@ public class EUserOrderFormCommand implements ECommand {
 		request.setAttribute("pListDtos", pListDtos);
 		request.setAttribute("registerDtos", shipDtos);
 		request.setAttribute("userDto", userDto);
-		
-		
-		
-		
-
 	}
+
+	@Override
+	public void execute(SqlSession sqlSession, Model model) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

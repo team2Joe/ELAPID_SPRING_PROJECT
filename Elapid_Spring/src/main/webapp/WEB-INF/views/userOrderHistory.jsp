@@ -1,11 +1,11 @@
-<%@page import="com.elapid.dto.OrderHistoryDto"%>
-<%@page import="com.elapid.command.EUserOrderHistoryCommand"%>
+<%@page import="com.elapid.spring01.dto.OrderHistoryDto"%>
+<%@page import="com.elapid.spring01.command.EUserOrderHistoryCommand"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.elapid.dto.AddCartDto"%>
+<%@page import="com.elapid.spring01.dto.AddCartDto"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 
 <div style="padding: 100px 200px 20px 200px; text-align:cneter;"  >
 <h1> 주문내역 </h1>
@@ -231,4 +231,4 @@
 %>
 	</div>
 		
-	<%@ include file="/layout/footer.jsp"%>
+	<%@ include file="layout/footer.jsp"%>

@@ -8,7 +8,7 @@ public interface UserDao {
 	public String nameReturn(String uid);
 	public void userAdd(String uid,String upwd,String uname, String uemail, String utel, String ugender, String ubirthdate);
 	public UserDto profileView(String suid);
-	public void profileModify(String uid, String uemail, String upwd, String utel, String ugender, String ubirthdate);
+	public void profileModify(String uemail, String upwd, String utel, String ugender, String ubirthdate,String uid);
 	public void profileDelete(String uid);
 	
 }

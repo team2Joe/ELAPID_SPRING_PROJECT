@@ -38,5 +38,12 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
+	<beans:bean name="eLoginCheck" class="com.elapid.spring01.command.ELoginCheckCommand"/>
+	<beans:bean name="eGoogleLogin" class="com.elapid.spring01.command.EGoogleLoginCommand"/>
+	<beans:bean name="eIdCheck" class = "com.elapid.spring01.command.EIdCheckCommand"/>
+	<beans:bean name="eRegisterCheck" class = "com.elapid.spring01.command.ERegisterCheckCommand"/>
+	<beans:bean name="eMyPage" class = "com.elapid.spring01.command.EMyPageCommand"/>
+	<beans:bean name="eProfileModify" class = "com.elapid.spring01.command.EProfileModifyCommand"/>
+	<beans:bean name="eProfileDelete" class = "com.elapid.spring01.command.EProfileDeleteCommand"/>
 	
 </beans:beans>

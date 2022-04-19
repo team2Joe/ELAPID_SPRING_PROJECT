@@ -1,21 +1,25 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.OrderDao;
-import com.elapid.dto.OrderHistoryDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.OrderDao;
+import com.elapid.spring01.dto.OrderHistoryDto;
 
 public class EUserOrderHistoryCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		String uid = (String)session.getAttribute("uid");
 		
 		OrderDao dao = new OrderDao();
@@ -34,7 +38,11 @@ public class EUserOrderHistoryCommand implements ECommand {
 			request.setAttribute("pageNumtwo", 1);
 		}
 		
-		System.out.println();
+	}
+
+	@Override
+	public void execute(SqlSession sqlSession, Model model) {
+
 		
 	}
 

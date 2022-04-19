@@ -33,12 +33,12 @@ function idduplicatecheck(){
 	var uname = document.getElementById("inputName").value;
 	var uemail = document.getElementById("inputEmail").value;
 	var utel = document.getElementById("inputTel").value;
-	location.href = "idCheck.do?uid=" + uid + "&uname=" + uname + "&uemail=" + uemail + "&utel=" + utel ;
+	location.href = "idCheck?uid=" + uid + "&uname=" + uname + "&uemail=" + uemail + "&utel=" + utel ;
 	}else{
 		alert("id 형식을 맞춰주세요 ")
 		return false
 	}
-//	window.open("idCheck.do","아이디 중복 검사","width = 600, height = 400 , left = 800 , top = 300" );	
+//	window.open("idCheck","아이디 중복 검사","width = 600, height = 400 , left = 800 , top = 300" );	
 }
 /*
 function emailcheck(){
@@ -49,7 +49,7 @@ function emailcheck(){
 	var utel = document.getElementById("inputTel").value;
 	
 	
-	location.href = "emailCheck.do?uemail=" + uemail;
+	location.href = "emailCheck?uemail=" + uemail;
 	
 }
 */
@@ -59,7 +59,7 @@ function emailcheck(){
 
 function userdelete(){
 	if (window.confirm("정말로 탈퇴하시겠습니까?")) {
-		location.href="profileDelete.do";
+		location.href="profileDelete";
 }
 	
 }
