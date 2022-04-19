@@ -19,18 +19,17 @@ public class EController_JJH {
 	
 	private ECommand luggageList = null;
 	private ECommand luggageFilterList = null;
-	private ECommand interestedProductList = null;
-	private ECommand detailView = null;
-	private ECommand search = null;
+//	private ECommand interestedProductList = null;
+//	private ECommand detailView = null;
+//	private ECommand search = null;
 	
 	@Autowired
-	public void auto(ECommand luggageList, ECommand luggageFilterList, ECommand interestedProductList,
-			ECommand detailView, ECommand search) {
+	public void auto(ECommand luggageList, ECommand luggageFilterList) {
 		this.luggageList = luggageList;
 		this.luggageFilterList = luggageFilterList;
-		this.interestedProductList = interestedProductList;
-		this.detailView = detailView;
-		this.search = search;
+//		this.interestedProductList = interestedProductList;
+//		this.detailView = detailView;
+//		this.search = search;
 
 	}
 	
@@ -57,6 +56,7 @@ public class EController_JJH {
 		
 		model.addAttribute("request", request);
 		luggageFilterList.execute(sqlSession, model);
+		
 		return "luggageFilterList";
 	}
 	

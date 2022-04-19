@@ -10,7 +10,7 @@ public interface ProductDao {
 	//productCount메서드 ??
 	
 	// 상품 갯수 반환
-	public int productCount(String category);
+	public int productCountDao(String value);
 	
 	public ArrayList<ProductListDto> luggageListDao(int startPage, int onePageCount);
 	

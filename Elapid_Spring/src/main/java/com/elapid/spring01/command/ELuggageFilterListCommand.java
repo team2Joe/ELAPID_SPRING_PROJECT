@@ -21,8 +21,6 @@ public class ELuggageFilterListCommand implements ECommand {
 		
 			Map<String, Object> map = model.asMap();
 			HttpServletRequest request = (HttpServletRequest)map.get("request");
-		
-			
 			
 			String[] ctg_middle = request.getParameterValues("ctg_middle");
 			String[] ps_color = request.getParameterValues("ps_color");
@@ -106,7 +104,7 @@ public class ELuggageFilterListCommand implements ECommand {
 				}		
 			}
 			
-			int count = dao.productCount(query);
+			int count = dao.productCountDao(query);
 
 			String tempStart = request.getParameter("page");
 			
@@ -122,19 +120,19 @@ public class ELuggageFilterListCommand implements ECommand {
 				startPage = (Integer.parseInt(tempStart)-1)*onePageCount;
 			}
 			
-			dao.luggageFilterListDao(ctg_middle, ps_color, p_mainf, startPage, onePageCount);
+			
 	
 			System.out.println(count);
 			
 			// 페이지 수 request로 보내기
-			request.setAttribute("count", count);
+			model.addAttribute("count", count);
 			
 			// 초기 필터링시 받아온 배열값들 페이징 버튼에 전달해주기
-			request.setAttribute("ctg_middle", ctg_middle);
-			request.setAttribute("ps_color", ps_color);
-			request.setAttribute("p_mainf", p_mainf);
+			model.addAttribute("ctg_middle", ctg_middle);
+			model.addAttribute("ps_color", ps_color);
+			model.addAttribute("p_mainf", p_mainf);
 			
-			request.setAttribute("list", dtos);
+			model.addAttribute("list", dao.luggageFilterListDao(ctg_middle, ps_color, p_mainf, startPage, onePageCount));
 
 			
 	}
