@@ -9,64 +9,49 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.elapid.spring01.command.ECartAddCommand;
 import com.elapid.spring01.command.ECommand;
-import com.elapid.spring01.dao.UserCartDao;
-
 
 @Controller
 public class EController_Uyoung {
 
-	ECommand command = null;	
-	private ECommand addCartCommand =null;
 	private HttpSession session;
-	
+
+	ECommand command = null;
+	private ECommand addCartCommand = null;
+	private ECommand cartViewCommand = null;
+
 	@Autowired
 	private SqlSession sqlSession;
-	
-	
+
 	@Autowired
-	public void CartCommand(ECommand addCart) {
+	public void CartCommand(ECommand addCart, ECommand cartView) {
 		this.addCartCommand = addCart;
+		this.cartViewCommand = cartView;
 	}
 	
-	/*Test*/
-	@RequestMapping("cart/{p_id}")
-	public String addCart(){
-		
-		return"addCart";
-	}
-	
-	
+
 	/* CartAdd */
 	@RequestMapping("/addCart")
-	 public String addCart(SqlSession sqlSession,HttpServletRequest request, Model model) {
+	public String addCart(HttpServletRequest request, Model model) {
+		
 		System.out.println("addCart()");
-		addCartCommand.execute_session(sqlSession, model,session, request);
-		return "";//page유지
+		
+		command = new ECartAddCommand();
+		command.execute_session(sqlSession, model, session, request);
+		 
+		//addCartCommand.execute_session(sqlSession, model, session, request);
+		return "index";// page유지
 	}
 
 	/* CartView */
 	@RequestMapping("/cartView")
-	public String cartView(SqlSession sqlSession, Model model, HttpSession session) {
-		
-		System.out.println("cartView");
-		
-		return "";
+	public String cart_View(Model model, HttpSession session) {
+
+		System.out.println("cart_View");
+
+		cartViewCommand.execute_session(sqlSession, model, session, null);
+		return "userCartView";
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

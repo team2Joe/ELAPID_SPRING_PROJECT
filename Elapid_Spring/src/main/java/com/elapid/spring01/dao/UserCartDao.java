@@ -1,9 +1,16 @@
 package com.elapid.spring01.dao;
 
-public interface UserCartDao {
+import java.util.ArrayList;
 
+import com.elapid.spring01.dto.CartViewDto;
+
+public interface UserCartDao {
+	
+	/*addCartDao*/
 	public void AddCartDao(int p_id, String u_id);
-	public void CartViewDao(String u_id);
+	
+	/*cartViewDao*/
+	public ArrayList<CartViewDto> CartViewDao(String u_id);
 		
 	
 }

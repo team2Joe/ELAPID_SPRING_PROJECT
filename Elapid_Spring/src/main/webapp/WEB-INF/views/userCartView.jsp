@@ -1,4 +1,4 @@
-<%@page import="com.elapid.spring01.dto.UserCartViewDto"%>
+<%@page import="com.elapid.spring01.dto.CartViewDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,14 +32,14 @@
 			<h3>주문하기</h3>
 		</div>
 	<%
-	ArrayList<UserCartViewDto> dtos = (ArrayList<UserCartViewDto>)request.getAttribute("User_Cart");
-		if ( dtos.size() != 0 ){
-			
-		
+	
+
+		ArrayList<CartViewDto> dtos = (ArrayList<CartViewDto>)request.getAttribute("cart_View");
+			if ( dtos.size() != 0 ){
 	%>
 
 		<form action="userOderForm.do" id="cart">
-			<c:forEach items="${User_Cart }" var="dtos">
+			<c:forEach items="${Cart_View }" var="dtos">
 					<div class="container">
 						<div class="row">
 							<div class="col-1" style="padding: 75px 0px 0px 0px;">
@@ -83,7 +83,7 @@
 			<h5>총 계</h5>
 			<h4>
 				<fmt:formatNumber
-					value="${User_Cart.get(User_Cart.size()-1).cart_totalamount}" pattern="#,###,###" />원
+					value="${cart_View.get(User_Cart.size()-1).cart_totalamount}" pattern="#,###,###" />원
 			</h4>
 		</div><!-- 중앙! -->
 	</div><!-- 2분할! -->

@@ -12,20 +12,20 @@ public class ECartAddCommand implements ECommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, 
 								HttpServletRequest request) {
-		// TODO Auto-generated method stub
 		
 		session = request.getSession();//u_id Session
-		String u_id =(String) session.getAttribute("uid");
+		//String u_id =(String) session.getAttribute("uid");
+		String u_id = "elapid01";
+		int p_id =  Integer.parseInt(request.getParameter("p_id"));
 		
 		UserCartDao dao = sqlSession.getMapper(UserCartDao.class);
-		dao.AddCartDao(Integer.parseInt(request.getParameter("p_id")),u_id);
+		dao.AddCartDao(p_id ,u_id);
 
 	}
 

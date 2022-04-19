@@ -10,7 +10,7 @@
 
 </script>
 <body>
-	<form action="userCartView.do" >
+	<form action="addCart?p_id=1&u_id=elapid01" >
 		<input type="submit" name="p_id" value="누르기" >
 	</form>
 </body>

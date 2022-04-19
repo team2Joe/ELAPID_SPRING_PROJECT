@@ -1,8 +1,7 @@
 
-<%@page import="com.elapid.dto.ProductListDto"%>
-<%@page import="com.elapid.dto.ProductDto"%>
+<%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
@@ -17,7 +16,7 @@ padding : 0 0 200px 200px;
 				<div class="image-group">
 					<div class="image-field">
 						<picture>
-						<img src="elapid_img/luggage_header.png">
+						<img src="resources/elapid_img/luggage_header.png">
 						</picture>
 					</div>
 					<div class="header-field" align="center">
@@ -66,7 +65,7 @@ padding : 0 0 200px 200px;
 						</div>
 				      </div>
 				      <div class="card-footer">
-							<button class="btn btn-dark" onclick = "location.href='addCart.do?p_id=${dto.p_id}'">장바구니 담기</button>
+							<button class="btn btn-dark" onclick = "location.href='addCart?p_id=${dto.p_id}'">장바구니 담기</button>
 				      </div>
 				    </div>
 				  </div>	
@@ -94,7 +93,7 @@ padding : 0 0 200px 200px;
 					<td>
 				</tr>
 		</div>		
-		<%@ include file="/layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	
 		
 		
 		
