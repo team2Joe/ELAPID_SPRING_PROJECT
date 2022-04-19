@@ -25,7 +25,7 @@
 </script>
 
 <body>
-<Form name="insertForm" action="questionWrite.do" method="post" id="qnaWriteForm" enctype="multipart/form-data" >
+<Form name="insertForm" action="questionWrite" method="post" id="qnaWriteForm" enctype="multipart/form-data" >
   <div class="col-sm-5 my-1" id="wrapper">
     <label for="exampleFormControlSelect1"><h6>문의 유형 분류</h6> </label>
     <select class="form-control" id="exampleFormControlSelect1" name="qc_name">
@@ -57,7 +57,7 @@
    <table border="0" width="600" height="10" id="wrapper">
     <tr>
     <td align=right>
-     <button  class="btn btn-secondary" onclick="location.href='questionList.do'" >취소하기</button></td>
+     <button  class="btn btn-secondary" onclick="location.href='questionList'" >취소하기</button></td>
      <td> 
      <button type="button" class="btn btn-dark" onclick="go()">등록하기</button></td>    <!--qnaregister()  -->
      </tr></table>
@@ -67,7 +67,7 @@
     <br><br><br><br><br><br>
      
 
-<script src="js/basic.js?ver=4"></script>
+<script src="resources/js/basic.js?ver=4"></script>
 </body>
 </html>
 <%@ include file="layout/footer.jsp" %>

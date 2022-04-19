@@ -151,15 +151,12 @@ function nullcheck() {
 
 function qnaregister() {
 	
-	location.href = "questionList.do";
+	location.href = "questionList";
 }
-	
-
-
 
 function qnawrite() {
 
-	location.href = "questionWriteForm.do";
+	location.href = "questionWriteForm";
 }
 function qnamodify() {
 		var form = document.getElementById("contentForm");
@@ -168,8 +165,8 @@ function qnamodify() {
 
 function qnadelete() {
 	var form = document.getElementById("contentForm");
-	form.action = "questionDelete.do";
+	form.action = "questionDelete";
 	form.submit();
-//	location.href = "questionDelete.do";
+//	location.href = "questionDelete";
 }
 

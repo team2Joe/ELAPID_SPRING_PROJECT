@@ -41,7 +41,7 @@ request.setCharacterEncoding("utf-8");
 </script>
 </head>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link href="css/basic.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/basic.css" rel="stylesheet" type="text/css" />
 <body>
 
 	          <%
@@ -130,7 +130,7 @@ request.setCharacterEncoding("utf-8");
 	      </ul>
 	      <ul class="navbar-nav">
 	        <li class="nav-item dropdown">
-	          <a class="nav-link" onclick="location.href='questionList.do'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link" onclick="location.href='questionList'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 	          	상품문의
 	          </a>
 	        </li>

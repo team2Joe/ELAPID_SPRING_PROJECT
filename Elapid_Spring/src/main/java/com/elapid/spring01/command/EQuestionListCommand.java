@@ -1,31 +1,31 @@
-package com.elapid.command;
-
-import java.util.ArrayList;
+package com.elapid.spring01.command;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dao.QnaDao;
-import com.elapid.dto.ProductQuestionDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.QnaDao;
+
 
 public class EQuestionListCommand implements ECommand {
-
+	
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
 		// TODO Auto-generated method stub
-
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		String uid = (String) session.getAttribute("uid");
 		
-		ArrayList<ProductQuestionDto> dtos = new ArrayList<ProductQuestionDto>();
-		QnaDao dao = new QnaDao();
+		QnaDao dao = sqlSession.getMapper(QnaDao.class);
+		model.addAttribute("questionList", dao.listDao());
+
 		
-		dtos = dao.questionList(uid);
-		request.setAttribute("QuestionList", dtos);
-		
+	}
+	
+	@Override
+	public void execute(SqlSession sqlSession, Model model) {
 
 		
 	}

@@ -1,13 +1,17 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.QnaDao;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.QnaDao;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -15,10 +19,15 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class EQuestionWriteCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
 		// TODO Auto-generated method stub
+
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
+		
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
+		
 		
 		String uploadPath=request.getRealPath("upload");;
 		MultipartRequest mr =null; 
@@ -61,10 +70,20 @@ public class EQuestionWriteCommand implements ECommand {
 		   }
 		   
 		// 업로드 끝
-		  
-		QnaDao dao = new QnaDao();
-		dao.write( qc_name, pq_title, pq_content, uid);
+		
+	
+		QnaDao dao = sqlSession.getMapper(QnaDao.class);
+		//model.addAttribute("questionWrite", dao.writeDao());
+		dao.writeDao(qc_name, size, pq_title, pq_content, uid);
 		
 		
 	}
+	
+	@Override
+	public void execute(SqlSession sqlSession, Model model) {
+
+		
+	}
+	
+	
 }
