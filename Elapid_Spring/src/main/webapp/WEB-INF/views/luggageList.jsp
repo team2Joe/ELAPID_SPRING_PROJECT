@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Map"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="com.elapid.spring01.dto.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,7 +19,7 @@ padding : 0 0 200px 200px;
 				<div class="image-group">
 					<div class="image-field">
 						<picture>
-						<img src="elapid_img/luggage_header.png">
+						<img src="resources/elapid_img/luggage_header.png">
 						</picture>
 					</div>
 					<div class="header-field" align="center">
@@ -29,7 +31,7 @@ padding : 0 0 200px 200px;
 			<div class="div1">
 					<h4>필터</h4>
 					<br>
-					<form action="luggageFilterList.do">
+					<form action="luggageFilterList">
 						<h5>크기</h5>
 							기내용/소형 <input type="checkbox" name="ctg_middle" value="small">
 							중형수하물 <input type="checkbox" name="ctg_middle" value="middle">
@@ -66,7 +68,7 @@ padding : 0 0 200px 200px;
 						</div>
 				      </div>
 				      <div class="card-footer">
-							<button class="btn btn-dark" onclick = "location.href='addCart.do?p_id=${dto.p_id}'">장바구니 담기</button>
+							<button class="btn btn-dark" onclick = "location.href='addCart?p_id=${dto.p_id}'">장바구니 담기</button>
 				      </div>
 				    </div>
 				  </div>	
@@ -77,24 +79,16 @@ padding : 0 0 200px 200px;
 		<div align ="center">
 				<tr>
 					<td>
-				
-		<%
-				// middleView.do 페이지수
-				int count = (int)request.getAttribute("count");	
-				
-				ArrayList<ProductListDto> list = (ArrayList<ProductListDto>)request.getAttribute("list");
-		
-				for(int i=1; i<=count; i++){
-		%>			
-					<button onclick="location.href='luggageList.do?page=<%=i %>'"><%=i %></button>
-		<%
-				}
-		%>
+						<!-- 페이징 처리 -->
+						<c:forEach var="i" begin="1" end="${count }">
+							<button onclick="location.href='luggageList?page=${i}'">${i}</button>
+						</c:forEach>				
+
 		
 					<td>
 				</tr>
 		</div>		
-		<%@ include file="/layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	
 		
 		
 		

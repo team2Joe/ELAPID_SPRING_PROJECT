@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.elapid.spring01.command.ECommand;
+import com.elapid.spring01.dao.ProductDao;
 
 @Controller
 public class EController_JJH {
@@ -30,6 +31,7 @@ public class EController_JJH {
 		this.interestedProductList = interestedProductList;
 		this.detailView = detailView;
 		this.search = search;
+
 	}
 	
 	//메인 화면
@@ -44,14 +46,17 @@ public class EController_JJH {
 	public String luggageList(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("request", request);
-
+		luggageList.execute(sqlSession, model);
+		
 		return "luggageList";
 	}
 	
 	// 캐리어 전용 필터
 	@RequestMapping("luggageFilterList")
-	public String luggageFilterList() {
+	public String luggageFilterList(HttpServletRequest request, Model model) {
 		
+		model.addAttribute("request", request);
+		luggageFilterList.execute(sqlSession, model);
 		return "luggageFilterList";
 	}
 	

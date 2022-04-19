@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 public interface ECommand {
 	
-	public void execute(SqlSession sqlSession, HttpServletResponse response);
+	public void execute(SqlSession sqlSession, Model model);
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request);
 	
 }

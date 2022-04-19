@@ -1,6 +1,7 @@
 package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,12 +15,17 @@ import com.elapid.spring01.dao.ProductDao;
 public class ELuggageListCommand implements ECommand {
 	
 	@Override
-	public void execute(SqlSession sqlSession, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
 				
-		ProductDao dao = null;
+		
+		ProductDao dao = sqlSession.getMapper(ProductDao.class);
 		
 		// 캐리어 전체 행 갯수 반환 카운트 메서드
-		int count = dao.productCount(" where c.ctg_main = 'luggage'");
+		int count = dao.productCount("WHERE CTG_MAIN ='luggage'");
+		
+		
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		// luggageList.jsp 페이지버튼에서 get으로 받은 page값
 		String tempStart = request.getParameter("page");
@@ -36,18 +42,14 @@ public class ELuggageListCommand implements ECommand {
 								// 2번째 페이지 부터 onePageCount단위로 startPage가 변경됨
 			startPage = (Integer.parseInt(tempStart)-1)*onePageCount;
 		}
-		
-		;
-		
-		request.setAttribute("count", count);
-		request.setAttribute("list", dao.luggageListDao(startPage, onePageCount));
+
+		model.addAttribute("count", count);
+		model.addAttribute("list", dao.luggageListDao(startPage, onePageCount));
 		
 	}
 
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
