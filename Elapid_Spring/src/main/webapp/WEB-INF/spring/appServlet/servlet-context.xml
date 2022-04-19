@@ -38,5 +38,16 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
+	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand"></beans:bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </beans:beans>

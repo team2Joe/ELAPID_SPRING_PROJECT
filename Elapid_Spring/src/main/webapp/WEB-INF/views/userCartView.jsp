@@ -1,15 +1,12 @@
-<%@page import="com.elapid.command.EUserCartViewCommand"%>
-<%@page import="com.elapid.dto.UserCartViewDto"%>
+<%@page import="com.elapid.spring01.dto.UserCartViewDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<%@page import="com.elapid.dto.AddCartDto"%>
+<%@ include file="layout/header.jsp" %>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="/layout/header.jsp"%>
 
 <html>
 <head>
@@ -126,5 +123,5 @@
 	%>
 
 </body>
-<%@ include file="/layout/footer.jsp"%>	
+<%@ include file="layout/footer.jsp"%>	
 </html>

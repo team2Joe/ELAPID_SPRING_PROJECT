@@ -9,10 +9,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.elapid.dto.AddressDto;
-import com.elapid.dto.RegisterDto;
-import com.elapid.dto.RegisterJoinDto;
-import com.elapid.dto.UserDto;
+import com.elapid.spring01.dto.AddressDto;
+import com.elapid.spring01.dto.RegisterDto;
+import com.elapid.spring01.dto.RegisterJoinDto;
+import com.elapid.spring01.dto.UserDto;
 
 public class UserDao {
 	DataSource dataSource = null;
