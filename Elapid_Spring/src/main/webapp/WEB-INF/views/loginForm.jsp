@@ -10,7 +10,7 @@
 
 	<div class="row" style="height: 700px">
 		<div class="col-lg-7">
-			<img alt="loginForm" src="elapid_img/loginform.jpeg" width="100%"
+			<img alt="loginForm" src="resources/elapid_img/loginform.jpeg" width="100%"
 				height="100%">
 		</div>
 		<div class="col-lg-5">

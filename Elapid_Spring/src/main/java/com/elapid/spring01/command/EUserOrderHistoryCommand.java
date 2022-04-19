@@ -16,11 +16,13 @@ public class EUserOrderHistoryCommand implements ECommand {
 
 	@Override
 	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+		
 		Map<String, Object> map = model.asMap();
 		request = (HttpServletRequest) map.get("request");
 		
 		session = request.getSession();
 		String uid = (String)session.getAttribute("uid");
+		
 		
 		OrderDao dao = new OrderDao();
 		ArrayList<OrderHistoryDto> dtos = new ArrayList<OrderHistoryDto>();
@@ -37,7 +39,7 @@ public class EUserOrderHistoryCommand implements ECommand {
 		}else {
 			request.setAttribute("pageNumtwo", 1);
 		}
-		
+		request.setAttribute("pageNumtwo", 1);
 	}
 
 	@Override

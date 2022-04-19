@@ -14,7 +14,7 @@
 	<!-- 중앙! -->
 	
 
-<%!
+ <%!
 	// 가격에 콤마 찍어주는 함수
 	public String comma(int num1){
 		String stramount = Integer.toString(num1);
@@ -103,7 +103,7 @@
 							<div class="container">
 				<div class="row">
 					<div class="col-1" style="padding: 55px 0px 0px 0px;">
-						<%-- <input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault">  --%>
+						<input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault"> 
 						
 					</div>
 					<div class="col-2" style="padding: 50px 0px 0px 0px;">
@@ -177,7 +177,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-1" style="padding: 55px 0px 0px 0px;">
-						<%-- <input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault">  --%>
+						<input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault"> 
 						
 					</div>
 					<div class="col-2" style="padding: 50px 0px 0px 0px;">
@@ -225,10 +225,9 @@
 			
 %>
 			<a href="userOrderHistory.do?pageNum=<%=i%>" >[<%=i%>]</a>
-
 <%
 		}
 %>
-	</div>
+	</div> 
 		
 	<%@ include file="layout/footer.jsp"%>
