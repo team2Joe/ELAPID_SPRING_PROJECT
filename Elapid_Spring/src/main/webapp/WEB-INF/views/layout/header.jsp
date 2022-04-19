@@ -200,7 +200,7 @@ request.setCharacterEncoding("utf-8");
 	        </li>
 
 	        <li class="nav-item dropdown">
-	          <a href="userCartView" class="nav-link" style="text-decoration:none">
+	          <a href="cartView" class="nav-link" style="text-decoration:none">
 	            <U>장바구니</U>
 	          </a>
 	        </li>

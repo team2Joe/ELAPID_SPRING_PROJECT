@@ -1,7 +1,7 @@
 package com.elapid.spring01.dto;
 
 
-public class UserCartViewDto {
+public class CartViewDto {
 
 	String u_id;
 	int p_id;
@@ -21,7 +21,7 @@ public class UserCartViewDto {
 	int cart_totalamount;
 	String ctg_middle;
 	
-	public UserCartViewDto() {
+	public CartViewDto() {
 		// TODO Auto-generated constructor stub
 		
 	}
@@ -29,7 +29,7 @@ public class UserCartViewDto {
 	
 	
 	
-	public UserCartViewDto(String u_id, int p_id, int cd_id, int cart_id, String p_name, String p_colorname, int p_price,
+	public CartViewDto(String u_id, int p_id, int cd_id, int cart_id, String p_name, String p_colorname, int p_price,
 			int cart_totalamount, String img_thum, int p_size, String ctg_middle) {
 		super();
 		this.u_id = u_id;
@@ -91,7 +91,7 @@ public class UserCartViewDto {
 
 
 
-	public UserCartViewDto(String u_id, int p_id, int cart_id, int c_id, String p_name, String p_colorname, int p_price,
+	public CartViewDto(String u_id, int p_id, int cart_id, int c_id, String p_name, String p_colorname, int p_price,
 			String c_name, int c_atleastprice, int c_value, int cart_totalamount) {
 		super();
 		this.u_id = u_id;
