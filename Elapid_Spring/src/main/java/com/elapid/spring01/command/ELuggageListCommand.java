@@ -21,7 +21,7 @@ public class ELuggageListCommand implements ECommand {
 		ProductDao dao = sqlSession.getMapper(ProductDao.class);
 		
 		// 캐리어 전체 행 갯수 반환 카운트 메서드
-		int count = dao.productCount("WHERE CTG_MAIN ='luggage'");
+		int count = dao.productCount("luggage");
 		
 		
 		Map<String, Object> map = model.asMap();
