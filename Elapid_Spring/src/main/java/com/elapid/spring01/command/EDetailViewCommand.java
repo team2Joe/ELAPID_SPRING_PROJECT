@@ -15,7 +15,6 @@ public class EDetailViewCommand implements ECommand {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		
-		
 		ProductDao dao = sqlSession.getMapper(ProductDao.class);
 		
 		Map<String, Object> map = model.asMap();
@@ -24,15 +23,14 @@ public class EDetailViewCommand implements ECommand {
 		
 		String p_id = request.getParameter("p_id");	
 		
+		// 조회수 증가
 		dao.increaseDetailView(p_id);
 		
 		model.addAttribute("detailView", dao.detailViewDao(p_id));
 	}
 
 	@Override
-	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void execute_session(SqlSession sqlSession, Model model,
+			HttpSession session, HttpServletRequest request) {}
 
 }

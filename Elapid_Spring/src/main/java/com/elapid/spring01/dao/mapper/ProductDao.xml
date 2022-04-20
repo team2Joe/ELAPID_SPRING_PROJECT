@@ -116,7 +116,7 @@
 		ON PD.P_ID = P.P_ID
 		JOIN PRODUCT_SPEC S
 		ON S.PS_ID = PD.PS_ID
-		WHERE ${param1} LIKE '%<trim prefixOverrides=" " suffixOverrides=" ">${param2}</trim>%';
+		WHERE ${param1} LIKE '%${param2}%';
 	</select>
 	
 	<select id="interestedProductListDao" resultType="com.elapid.spring01.dto.ProductListDto">
@@ -137,4 +137,5 @@
 		ON S.PS_ID = PD.PS_ID
 		ORDER BY P_CLICKCOUNT DESC LIMIT 0, 3;
 	</select>
+	
 </mapper>

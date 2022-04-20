@@ -133,13 +133,35 @@ function navbtnlinkbackpack() {
 	location.href = "backpackList";
 }
 
-// 주오기능 전체 리스트	
+// 주요기능 전체 리스트	
 function navbtnlinkfunction() {
 	
 	location.href = "middleFunctionList";
 }
+// 숫자 컴마 함수 ----------------------------------------------
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
 
+function uncomma(str) {
+    str = String(str);
+    return str.replace(/[^\d]+/g, '');
+} 
 
+function inputNumberFormat(obj) {
+    obj.value = comma(uncomma(obj.value));
+}
+
+function inputOnlyNumberFormat(obj) {
+    obj.value = onlynumber(uncomma(obj.value));
+}
+
+function onlynumber(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1');
+}
+//------------------------------------------------------------
 function nullcheck() {
 	
 }

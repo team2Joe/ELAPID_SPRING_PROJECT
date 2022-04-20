@@ -26,13 +26,11 @@ public class ESearchCommand implements ECommand {
 		String search = request.getParameter("search");
 		String category = request.getParameter("category");		
 		
-		model.addAttribute("list", dao.searchDao(category, search));
+		model.addAttribute("list", dao.searchDao(category, search.trim()));
 	}
-
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -31,7 +31,7 @@
 				      <div class="card-body">
 				        <h5 class="card-title">${dto.p_name }</h5>
 				      </a>
-				        <h6 class="card-price">${dto.p_price } won</h6>
+				        <h6 class="card-price"><fmt:formatNumber type="number" value="${dto.p_price }"/> won</h6>
 				        <div class="attribute">	
 							
 						</div>
