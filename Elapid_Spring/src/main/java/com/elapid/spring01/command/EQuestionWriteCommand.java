@@ -22,14 +22,13 @@ public class EQuestionWriteCommand implements ECommand {
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
 		// TODO Auto-generated method stub
 
-		
 		session = request.getSession();
 		
 		Map<String, Object> map = model.asMap();
 		request = (HttpServletRequest) map.get("request");
 		
 		
-		String uploadPath=request.getRealPath("upload");;
+		String uploadPath=request.getRealPath("/resources/upload");;
 		MultipartRequest mr =null; 
 				
 		try {

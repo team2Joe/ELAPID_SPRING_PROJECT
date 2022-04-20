@@ -45,6 +45,7 @@
 		LIMIT #{param1}, #{param2};
 	</select>
 	
+	<!-- 캐리어 필터링 페이지 -->
 	<select id="luggageFilterListDao" resultType="com.elapid.spring01.dto.ProductListDto">
 		SELECT * FROM PRODUCT_IMAGE I
 		JOIN IMAGE_DETAIL ID 
@@ -81,6 +82,7 @@
 		LIMIT #{param4}, #{param5};		
 	</select>
 
+	<!-- 제품 상세 페이지 -->
 	<select id="detailViewDao" resultType="com.elapid.spring01.dto.ProductDetailDto" >
 		SELECT * FROM PRODUCT_IMAGE I
 		JOIN IMAGE_DETAIL ID 
@@ -98,10 +100,12 @@
 		WHERE P.P_ID = #{param1};
 	</select>
 	
+	<!-- 조회수 증가 -->
 	<update id="increaseDetailView">
 		UPDATE PRODUCT SET P_CLICKCOUNT = P_CLICKCOUNT+1 WHERE P_ID = #{param1};
 	</update>
 	
+	<!-- 검색 리스트 -->
 	<select id="searchDao" resultType="com.elapid.spring01.dto.ProductListDto">
 		SELECT * FROM PRODUCT_IMAGE I
 		JOIN IMAGE_DETAIL ID 

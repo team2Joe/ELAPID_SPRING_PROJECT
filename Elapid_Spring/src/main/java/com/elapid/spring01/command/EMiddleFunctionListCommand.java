@@ -5,9 +5,9 @@
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 //
-//import com.elapid.dao.ProductDao;
-//import com.elapid.dto.ProductDto;
-//import com.elapid.dto.ProductListDto;
+//import com.elapid.spring01.dao.ProductDao;
+//import com.elapid.spring01.dto.ProductDto;
+//import com.elapid.spring01.dto.ProductListDto;
 //
 //public class EMiddleFunctionListCommand implements ECommand {
 //

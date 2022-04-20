@@ -14,10 +14,22 @@
    padding : 0 0 200px 200px;
    }
 </style>
+	<div class="category-banner0">
+		<div class="image-group">
+			<div class="image-field">
+				<picture>
+				<img src="resources/elapid_img/luggage_header.png">
+				</picture>
+			</div>
+			<div class="header-field" align="center">
+				<h2>캐리어</h2>
+			</div>
+		</div>
+	</div>
 	<br> 	
 	<div class="div1">
 		<h4>필터</h4>
-		
+		<br>
 		<form action="luggageFilterList">
 			<h5>크기</h5>
 				기내용/소형 <input type="checkbox" name="ctg_middle" value="small">

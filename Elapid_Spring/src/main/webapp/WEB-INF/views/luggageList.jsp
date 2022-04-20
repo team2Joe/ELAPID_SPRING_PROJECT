@@ -69,7 +69,7 @@ padding : 0 0 200px 200px;
 					<td>
 				</tr>
 		</div>		
-		<%@ include file="layout/footer.jsp"%>	
+<%@ include file="layout/footer.jsp"%>	
 		
 		
 		

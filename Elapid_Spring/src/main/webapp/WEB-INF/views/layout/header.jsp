@@ -74,9 +74,9 @@ request.setCharacterEncoding("utf-8");
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 	            <li><h5>&nbsp&nbsp크기</h5></li>
 	            <li></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=small">기내용</a></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=middle">중형수화물</a></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=large">대형수화물</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=small">기내용</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=middle">중형수하물</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=large">대형수화물</a></li>
 	          </ul>
 	        </li>
 	      </ul>
