@@ -7,8 +7,6 @@ import com.elapid.spring01.dto.ProductListDto;
 
 public interface ProductDao {
 	
-	//productCount메서드 ??
-	
 	// 상품 갯수 반환
 	public int productCountDao(String value);
 	
@@ -21,5 +19,7 @@ public interface ProductDao {
 	public ArrayList<ProductListDto> searchDao(String search, String category);
 	
 	public ProductDetailDto detailViewDao(String p_id);
-
+	
+	// 조회수 증가 메서드
+	public void increaseDetailView(String p_id);
 }

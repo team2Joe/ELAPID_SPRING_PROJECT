@@ -15,21 +15,21 @@ import com.elapid.spring01.dao.ProductDao;
 public class EController_JJH {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	private ECommand luggageList = null;
 	private ECommand luggageFilterList = null;
-//	private ECommand interestedProductList = null;
+	private ECommand interestedProductList = null;
 	private ECommand detailView = null;
-//	private ECommand search = null;
+	private ECommand search = null;
 	
 	@Autowired
-	public void auto(ECommand luggageList, ECommand luggageFilterList, ECommand detailView) {
+	public void auto(ECommand luggageList, ECommand luggageFilterList, ECommand detailView, ECommand search, ECommand interestedProductList) {
 		this.luggageList = luggageList;
 		this.luggageFilterList = luggageFilterList;
-//		this.interestedProductList = interestedProductList;
+		this.interestedProductList = interestedProductList;
 		this.detailView = detailView;
-//		this.search = search;
+		this.search = search;
 
 	}
 	
@@ -68,14 +68,15 @@ public class EController_JJH {
 	public String searchList(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("request", request);
-		detailView.execute(sqlSession, model);
+		search.execute(sqlSession, model);
 		
 		return "searchList";
 	}	
 	
 	@RequestMapping("interestedProductList")
-	public String interestedProductList() {
+	public String interestedProductList(Model model) {
 		
+		interestedProductList.execute(sqlSession, model);
 		
 		return "index";
 	}

@@ -1,18 +1,14 @@
 package com.elapid.spring01.command;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.ProductDao;
-
-
 
 public class EDetailViewCommand implements ECommand {
 
@@ -28,8 +24,9 @@ public class EDetailViewCommand implements ECommand {
 		
 		String p_id = request.getParameter("p_id");	
 		
+		dao.increaseDetailView(p_id);
+		
 		model.addAttribute("detailView", dao.detailViewDao(p_id));
-
 	}
 
 	@Override

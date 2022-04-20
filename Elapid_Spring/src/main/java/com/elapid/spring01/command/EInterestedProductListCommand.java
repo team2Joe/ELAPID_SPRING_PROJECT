@@ -1,42 +1,26 @@
 package com.elapid.spring01.command;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dto.ProductListDto;
+import com.elapid.spring01.dao.ProductDao;
+
 
 public class EInterestedProductListCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
 		
-		ArrayList<ProductListDto> dtos = new ArrayList<ProductListDto>();
+		ProductDao dao = sqlSession.getMapper(ProductDao.class);
 		
-		ProductDao dao = new ProductDao();
-		
-		dtos = dao.interestedProductList();
-		
-		request.setAttribute("list", dtos);
-
-	}
-
-	@Override
-	public void execute(SqlSession sqlSession, HttpServletResponse response) {
-		
-		
+		model.addAttribute("list", dao.interestedProductListDao());
 	}
 
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

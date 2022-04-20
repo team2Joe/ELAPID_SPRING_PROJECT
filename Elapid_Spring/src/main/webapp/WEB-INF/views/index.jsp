@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<a href="luggageList.do"><img src="resources/elapid_img/indexMain.jpeg" width="100%"></a>
+<a href="luggageList"><img src="resources/elapid_img/indexMain.jpeg" width="100%"></a>
 
 <div class="accordion" id="accordionExample" align="center">
   <div class="accordion-item">
@@ -26,7 +26,7 @@
 				    		<p class="text-info bg-grey">Top${dto.p_rank }</p>		    		
 				    	</c:otherwise>
 				    </c:choose>
-			    	  <a href="detailView.do?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
+			    	  <a href="detailView?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
 				      <img src="${dto.img_thum }" alt="..." align="center">
 				      <div class="card-body">
 				        <h5 class="card-title">${dto.p_name }</h5>
