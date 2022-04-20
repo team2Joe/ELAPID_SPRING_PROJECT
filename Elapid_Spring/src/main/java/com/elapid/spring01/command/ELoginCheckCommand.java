@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.UserDao;
+import com.elapid.spring01.dao.UserLogDao;
+import com.elapid.spring01.dto.UserDto;
 
 
 public class ELoginCheckCommand implements ECommand {
@@ -25,23 +27,27 @@ public class ELoginCheckCommand implements ECommand {
 		session = request.getSession();
 		UserDao dao = sqlSession.getMapper(UserDao.class);
 		String uid = "";
+		
 
-		//UserLogDao lDao = new UserLogDao();
+		UserLogDao lDao = new UserLogDao();
 		
 		
 		
 		uid = request.getParameter("uid");
+		UserDto dto = dao.profileView(uid);
 		String upassword = request.getParameter("upassword");
 		int result = dao.loginCheck(uid, upassword);
+		
 		if(result == 1 ) {
 			session.setAttribute("uid",uid);
+			session.setAttribute("upoint",dto.getU_point());
 			request.setAttribute("loginviewparam", "redirect:main");
-				
-			String comment = dao.nameReturn(uid);
-			session.setAttribute("comment", comment + "님 환영합니다.");
+			
+			String name = dto.getU_name();
+			session.setAttribute("comment", name + "님 환영합니다.");
 
 			
-			//lDao.userLoginLogAdd(uid);
+			lDao.userLoginLogAdd(uid);
 		}else{
 			request.setAttribute("loginviewparam", "loginForm");
 		}

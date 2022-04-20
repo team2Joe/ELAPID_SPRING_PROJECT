@@ -52,6 +52,9 @@ request.setCharacterEncoding("utf-8");
 		        if(session.getAttribute("gresult") == null){
 		        	gresult = "";
 		        }
+		        int upoint = -1;
+		        	upoint = (Integer)session.getAttribute("upoint") != null ?  (Integer)session.getAttribute("upoint"):0 ;
+		        	
 		      %>
 		      
 		      
@@ -204,6 +207,22 @@ request.setCharacterEncoding("utf-8");
 	            <U>장바구니</U>
 	          </a>
 	        </li>
+	        <%
+	        	try{
+	        		if(upoint >= 5){
+	        %>
+	        <li class="nav-item dropdown">
+	          <a href="adminDashboard" class="nav-link" style="text-decoration:none">
+	            <U>admin</U>
+	          </a>
+	        </li>
+	        	
+			<%
+	        		}
+	        	}catch(Exception e){
+	        		
+	        	}
+			%>	        			
 	      </ul>
 	    </div>
 	  </div>

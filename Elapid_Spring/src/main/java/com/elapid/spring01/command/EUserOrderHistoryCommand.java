@@ -30,8 +30,31 @@ public class EUserOrderHistoryCommand implements ECommand {
 		dtos = dao.userOrderHistory(uid);
 		
 		request.setAttribute("orderHistory", dtos);
+
 		
-		System.out.println( request.getParameter("pageNum") + "***********");
+		int contentsNumPerPage  = 5 ; // 페이지당 보여줄 컨텐츠 수;
+		
+		//페이지당 컨텐츠수로 인덱스 정해놓기  
+		ArrayList<Integer> iNum = new ArrayList<Integer>();
+		iNum.add(0);
+		int count = 0;
+		for(int i = 0; i<dtos.size() ; i++){
+			if(i > 0){
+				if(dtos.get(i).getUo_id() != dtos.get(i-1).getUo_id()){
+					count += 1 ;
+					if(count % contentsNumPerPage == 0){
+						iNum.add(i);
+					}
+				}
+			}
+		}
+		int allPageNum = iNum.size();
+		
+		request.setAttribute("iNum",iNum);
+		request.setAttribute("allPageNum",allPageNum);
+		request.setAttribute("contentsNumPerPage",contentsNumPerPage);
+		
+		
 		
 		if (request.getParameter("pageNum") != null) {
 			
@@ -40,6 +63,14 @@ public class EUserOrderHistoryCommand implements ECommand {
 			request.setAttribute("pageNumtwo", 1);
 		}
 		request.setAttribute("pageNumtwo", 1);
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,13 @@ import com.elapid.spring01.command.ESelectedReadInCartCommand;
 import com.elapid.spring01.command.EUserOrderCommand;
 import com.elapid.spring01.command.EUserOrderFormCommand;
 import com.elapid.spring01.command.EUserOrderHistoryCommand;
+import com.elapid.spring01.util.Constant;
 
 @Controller
 public class KTEController {
 	
 	private HttpSession session;
+	
 	
 	ECommand command = null;
 	private ECommand eLoginCheckCommand = null ;
@@ -33,6 +36,9 @@ public class KTEController {
 	private ECommand eMyPageCommand = null ;
 	private ECommand eProfileModifyCommand = null ;
 	private ECommand eProfileDeleteCommand = null ;
+	
+	private JdbcTemplate template;
+	
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -47,6 +53,14 @@ public class KTEController {
 		this.eProfileModifyCommand= eProfileModify;
 		this.eProfileDeleteCommand= eProfileDelete;
 	}
+	
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+		Constant.template = this.template;
+	}
+
+	
 	
 	//로그인 폼
 	@RequestMapping("loginForm")
@@ -233,11 +247,21 @@ public class KTEController {
 	//유저 주문내역 
 	@RequestMapping("userOrderHistory")
 	public String userOrderHistory(HttpServletRequest request,Model model) {
-		
 		model.addAttribute("request",request);
 		command = new EUserOrderHistoryCommand();
 		command.execute_session(sqlSession, model, session, request);
 		
 		return "userOrderHistory";
+	}
+	
+	//관리자 대시보드
+	@RequestMapping("adminDashboard")
+	public String adminDashboard(HttpServletRequest request,Model model) {
+		HttpSession session = request.getSession();
+		if((Integer)session.getAttribute("upoint") < 5) {
+			return "errorpage";
+		}
+		
+		return "adminDashboard";
 	}
 }

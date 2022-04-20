@@ -26,45 +26,30 @@
 		}
 		return stramount;
 	}
-
 %>						
 
 <%
-	ArrayList<OrderHistoryDto> ohdtos = new ArrayList<OrderHistoryDto>();
-	
-	ohdtos = (ArrayList<OrderHistoryDto>)request.getAttribute("orderHistory");
-	
+	ArrayList<OrderHistoryDto> ohdtos = (ArrayList<OrderHistoryDto>)request.getAttribute("orderHistory");
 	String justcomment = "";
 	
-	int contentsNumPerPage  = 5 ; // 페이지당 총 컨텐츠 수;
+	
 	int contentCount = 0 ; // 컨텐츠 카운트
 	int pageNum = (Integer)request.getAttribute("pageNumtwo");  // 현재 페이지 넘버 
-	ArrayList<Integer> iNum = new ArrayList<Integer>();
-	ArrayList<Integer> uo_ids = new ArrayList<Integer>();
-	iNum.add(0);
-	int count = 0;
-	for(int i = 0; i<ohdtos.size() ; i++){
-		if(i > 0){
-			if(ohdtos.get(i).getUo_id() != ohdtos.get(i-1).getUo_id()){
-				count += 1 ;
-				if(count % 5 == 0){
-					iNum.add(i);
-				}
-			}
-		}
-	}
-	int allPageNum = iNum.size();
-
+	ArrayList<Integer> iNum = (ArrayList<Integer>)request.getAttribute("iNum"); 
+	int allPageNum = (Integer)request.getAttribute("allPageNum");  
+	int contentsNumPerPage = (Integer)request.getAttribute("contentsNumPerPage");  
+	
+	//주문내역 수가 0이 아닐떄 
 	if (ohdtos.size() != 0){
 %>
 	 <!-- 일단 반품을 고려해 form 으로 체크 박스를 넣으려고 했기때문에 폼이 있다.-->
  	<form action="userOderForm.do" id="cart">
 <%
-		for(int i = 0 + iNum.get(pageNum-1) ; i<ohdtos.size() ; i++){
+		for(int i = iNum.get(pageNum-1) ; i < ohdtos.size() ; i++){
+			//예외처리 인덱스 0 만 따로 출력
 			if(i == 0){
 				contentCount += 1;
 %>
-				
 				<!-- 인덱스 0 만 따로 출력 끝 -->
 				<div class="container">
 					<div class="row">
@@ -112,7 +97,7 @@
 					</div>
 					<!-- 상품 이미지 -->
 					<div class="col-2" align="left">
-						<img src="<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
+						<img src="resources/<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
 					</div>
 					<!-- 상품 정보 -->
 					<div class="col-4" align="left" style="padding: 20px 0px 0px 0px;">
@@ -132,8 +117,6 @@
 			<!-- 인덱스 0 만 따로 출력 끝 -->
 			
 <%
-			
-			
 				// i 가 0 이 아니고 주문번호 가 다를 떄 
 			}else if ( ohdtos.get(i).getUo_id() != ohdtos.get(i-1).getUo_id()){
 				contentCount += 1;
@@ -186,7 +169,7 @@
 					</div>
 					<!-- 상품 이미지 -->
 					<div class="col-2" align="left">
-						<img src="<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
+						<img src="resources/<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
 					</div>
 					<!-- 상품 정보 -->
 					<div class="col-4" align="left" style="padding: 20px 0px 0px 0px;">
