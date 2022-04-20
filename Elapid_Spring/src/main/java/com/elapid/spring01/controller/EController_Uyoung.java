@@ -20,14 +20,16 @@ public class EController_Uyoung {
 	ECommand command = null;
 	private ECommand addCartCommand = null;
 	private ECommand cartViewCommand = null;
+	private ECommand cartDeleteCommand = null;
 
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Autowired
-	public void CartCommand(ECommand addCart, ECommand cartView) {
+	public void CartCommand(ECommand addCart, ECommand cartView, ECommand cartDelete) {
 		this.addCartCommand = addCart;
 		this.cartViewCommand = cartView;
+		this.cartDeleteCommand = cartDelete;
 	}
 	
 
@@ -35,23 +37,33 @@ public class EController_Uyoung {
 	@RequestMapping("/addCart")
 	public String addCart(HttpServletRequest request, Model model) {
 		
-		System.out.println("addCart()");
+		//System.out.println("addCart()");
 		
-		command = new ECartAddCommand();
-		command.execute_session(sqlSession, model, session, request);
-		 
-		//addCartCommand.execute_session(sqlSession, model, session, request);
-		return "index";// page유지
+		addCartCommand.execute_session(sqlSession, model, session, request);
+	
+		return "cartLink";// page유지
 	}
 
 	/* CartView */
 	@RequestMapping("/cartView")
 	public String cart_View(Model model, HttpServletRequest request) {
 
-		System.out.println("cart_View()");
+		//System.out.println("cart_View()");
 
 		cartViewCommand.execute_session(sqlSession, model, session, request);
 		return "userCartView";
+	}
+	
+	
+	/* CartDelete */
+	@RequestMapping("/cartDelete")
+	public String cartDelete(HttpServletRequest request, Model model) {
+		
+		//System.out.println("cartDelete()");
+		
+		cartDeleteCommand.execute_session(sqlSession, model, session, request);
+		return "redirect:cartView";
+		
 	}
 
 }

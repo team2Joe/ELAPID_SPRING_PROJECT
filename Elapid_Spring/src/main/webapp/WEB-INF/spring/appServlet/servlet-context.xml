@@ -57,6 +57,7 @@
 
 	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" ></beans:bean>
 	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" ></beans:bean>
+	<beans:bean name="cartDelete" class="com.elapid.spring01.command.ECartDeleteCommand" ></beans:bean>
 
 	
 	

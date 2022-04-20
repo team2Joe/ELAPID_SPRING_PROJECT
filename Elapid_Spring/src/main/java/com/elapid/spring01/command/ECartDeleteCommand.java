@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.UserCartDao;
 
-public class ECartViewCommand implements ECommand {
+public class ECartDeleteCommand implements ECommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -19,14 +19,14 @@ public class ECartViewCommand implements ECommand {
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
 		// TODO Auto-generated method stub
-
-	session = request.getSession();//u_id Session
-	String u_id =(String) session.getAttribute("uid");
-	UserCartDao dao = sqlSession.getMapper(UserCartDao.class);
-	
-	//System.out.println("******************"+dao.CartViewDao(u_id));
-	
-	model.addAttribute("cart_View", dao.CartViewDao(u_id));
-	
+		session = request.getSession();//u_id Session
+		String u_id =(String) session.getAttribute("uid");
+		int cd_id = Integer.parseInt(request.getParameter("cd_id"));
+		
+		
+		UserCartDao dao = sqlSession.getMapper(UserCartDao.class);
+		dao.CartDeleteDao(cd_id);
+		
 	}
+
 }
