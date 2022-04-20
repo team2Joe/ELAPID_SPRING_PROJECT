@@ -19,10 +19,10 @@
  	</delete>
  	
  	<update id="modifyDao">
-		UPDATE PRODUCT_QUESTION SET QC_NAME=(#{param1}), PQ_TITLE=(#{param2}), PQ_CONTENT=(#{param3}) WHERE PQ_ID = (#{param4})	
+		UPDATE PRODUCT_QUESTION SET QC_NAME = #{param1}, PQ_TITLE=#{param2}, PQ_CONTENT=#{param3} WHERE PQ_ID = #{param4}	
  	</update>
 
- 	<select id="contentViewDao">
+ 	<select id="contentViewDao" resultType="com.elapid.spring01.dto.ProductQuestionDto">
 		SELECT * FROM PRODUCT_QUESTION WHERE PQ_ID = (#{param1})	
  	</select>
  	

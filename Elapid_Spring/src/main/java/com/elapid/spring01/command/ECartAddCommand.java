@@ -21,12 +21,12 @@ public class ECartAddCommand implements ECommand {
 		
 		session = request.getSession();//u_id Session
 		String u_id =(String) session.getAttribute("uid");
-		//String u_id = "elapid01";
+
 		int p_id =  Integer.parseInt(request.getParameter("p_id"));
 		
 		UserCartDao dao = sqlSession.getMapper(UserCartDao.class);
 		dao.AddCartDao(p_id ,u_id);
-
+		
 	}
 
 		

@@ -236,48 +236,48 @@
 			<div class="justify-content-center account-cards">
 				<div class="row order-card">
 					<div class="col-3 col-md-2 image-card">
-						<a href="userOrderHistory.do"><i class="wishlist-icon fa-solid fa-basket-shopping"></i>
+						<a href="userOrderHistory"><i class="wishlist-icon fa-solid fa-basket-shopping"></i>
 						</a>
 					</div>
 					<div class="text-card col-7 col-md-8">
-						<a href="userOrderHistory.do">
+						<a href="userOrderHistory">
 							<h4>나의 구매내역</h4>
 						</a>
 					</div>
 					<div class="arrowed col-2 col-md-2" style="padding-top:15px">
-						<a href="userOrderHistory.do">
+						<a href="userOrderHistory">
 							<div class="arrow-1"></div>
 						</a>
 					</div>
 				</div>
 				<div class="row profile-card">
 					<div class="col-3 col-md-2 image-card">
-						<a href="profileView.do"> <i class="wishlist-icon fa-solid fa-id-badge"></i>
+						<a href="profileView"> <i class="wishlist-icon fa-solid fa-id-badge"></i>
 						</a>
 					</div>
 					<div class="text-card col-7 col-md-8">
-						<a href="profileView.do">
+						<a href="profileView">
 							<h4>내 프로필 보기</h4>
 						</a>
 					</div>
 					<div class="arrowed col-2 col-md-2" style="padding-top:15px">
-						<a href="profileView.do">
+						<a href="profileView">
 							<div class="arrow-1"></div>
 						</a>
 					</div>
 				</div>
 				<div class=" row address-book-card">
 					<div class="col-3 col-md-2 image-card">
-						<a href="addressBookView.do"> <i class="wishlist-icon fa-solid fa-map-location"></i>
+						<a href="addressBookView"> <i class="wishlist-icon fa-solid fa-map-location"></i>
 						</a>
 					</div>
 					<div class="text-card col-7 col-md-8">
-						<a href="addressBookView.do">
+						<a href="addressBookView">
 							<h4>주소록</h4>
 						</a>
 					</div>
 					<div class="arrowed col-2 col-md-2" style="padding-top:15px">
-						<a href="addressBookView.do">
+						<a href="addressBookView">
 							<div class="arrow-1"></div>
 						</a>
 					</div>
@@ -318,17 +318,17 @@
 
 					<div class="row my-qa-card">
 						<div class="col-3 col-md-2 image-card">
-							<a href="questionList.do"> 
+							<a href="questionList"> 
 								<i class="wishlist-icon fa-solid fa-circle-question"></i>
 							</a>
 						</div>
 						<div class="text-card col-7 col-md-8">
-							<a href="questionList.do">
+							<a href="questionList">
 								<h4>1:1문의</h4>
 							</a>
 						</div>
 						<div class="arrowed col-2 col-md-2" style="padding-top:15px">
-							<a href="questionList.do">
+							<a href="questionList">
 								<div class="arrow-1"></div>
 							</a>
 						</div>

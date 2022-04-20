@@ -13,6 +13,7 @@ import com.elapid.spring01.command.EQuestionListCommand;
 import com.elapid.spring01.command.EQuestionWriteCommand;
 import com.elapid.spring01.command.EQuestionModifyCommand;
 import com.elapid.spring01.command.ECommand;
+import com.elapid.spring01.command.EQuestionContentCommand;
 import com.elapid.spring01.command.EQuestionDeleteCommand;
 
 @Controller
@@ -34,9 +35,9 @@ public class AhController {
 	
 	//문의 목록
 	@RequestMapping("questionList")
-	public String questionList(Model model) {
+	public String questionList(HttpServletRequest request, Model model) {
 		command = new EQuestionListCommand();
-		command.execute(sqlSession, model);	
+		command.execute_session(sqlSession, model, session, request);
 		
 		return "questionList";
 	}
@@ -44,7 +45,7 @@ public class AhController {
 	//문의 내용 보기
 	@RequestMapping("questionContentView")
 	public String questionContentView(HttpServletRequest request, Model model) {
-		command = new EQuestionListCommand();
+		command = new EQuestionContentCommand();
 		command.execute_session(sqlSession, model, session, request);	
 		return "questionContent";
 	}

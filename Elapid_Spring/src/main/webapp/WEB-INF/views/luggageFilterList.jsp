@@ -107,7 +107,7 @@
 				}		
 			}
 			// luggageFilterList 페이지 수
-			int count = (int)request.getAttribute("count");	
+			int count = (Integer)request.getAttribute("count");	
 	
 			for(int i=1; i<=count; i++){
 	%>			

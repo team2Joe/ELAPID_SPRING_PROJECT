@@ -14,7 +14,7 @@
 	<!-- 중앙! -->
 	
 
-<%!
+ <%!
 	// 가격에 콤마 찍어주는 함수
 	public String comma(int num1){
 		String stramount = Integer.toString(num1);
@@ -26,7 +26,6 @@
 		}
 		return stramount;
 	}
-
 %>						
 
 <%
@@ -103,7 +102,7 @@
 							<div class="container">
 				<div class="row">
 					<div class="col-1" style="padding: 55px 0px 0px 0px;">
-						<%-- <input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault">  --%>
+						<input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault"> 
 						
 					</div>
 					<div class="col-2" style="padding: 50px 0px 0px 0px;">
@@ -112,7 +111,7 @@
 					</div>
 					<!-- 상품 이미지 -->
 					<div class="col-2" align="left">
-						<img src="<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
+						<img src="resources/<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
 					</div>
 					<!-- 상품 정보 -->
 					<div class="col-4" align="left" style="padding: 20px 0px 0px 0px;">
@@ -132,8 +131,6 @@
 			<!-- 인덱스 0 만 따로 출력 끝 -->
 			
 <%
-			
-			
 				// i 가 0 이 아니고 주문번호 가 다를 떄 
 			}else if ( ohdtos.get(i).getUo_id() != ohdtos.get(i-1).getUo_id()){
 				contentCount += 1;
@@ -177,7 +174,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-1" style="padding: 55px 0px 0px 0px;">
-						<%-- <input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault">  --%>
+						<input class="form-check-input" type="checkbox" name="cartchoice" value="${dtos.cd_id}" id="flexCheckDefault"> 
 						
 					</div>
 					<div class="col-2" style="padding: 50px 0px 0px 0px;">
@@ -186,7 +183,7 @@
 					</div>
 					<!-- 상품 이미지 -->
 					<div class="col-2" align="left">
-						<img src="<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
+						<img src="resources/<%=ohdtos.get(i).getImg_thum() %>" width="100" height="150">
 					</div>
 					<!-- 상품 정보 -->
 					<div class="col-4" align="left" style="padding: 20px 0px 0px 0px;">
@@ -225,10 +222,9 @@
 			
 %>
 			<a href="userOrderHistory.do?pageNum=<%=i%>" >[<%=i%>]</a>
-
 <%
 		}
 %>
-	</div>
+	</div> 
 		
 	<%@ include file="layout/footer.jsp"%>
