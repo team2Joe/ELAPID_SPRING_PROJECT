@@ -46,9 +46,9 @@ public class EController_Uyoung {
 
 	/* CartView */
 	@RequestMapping("/cartView")
-	public String cart_View(Model model, HttpSession session, HttpServletRequest request) {
+	public String cart_View(Model model, HttpServletRequest request) {
 
-		System.out.println("cart_View");
+		System.out.println("cart_View()");
 
 		cartViewCommand.execute_session(sqlSession, model, session, request);
 		return "userCartView";

@@ -5,7 +5,7 @@
     <mapper namespace="com.elapid.spring01.dao.UserCartDao">
     
     <insert id="AddCartDao">
-    	INSERT INTO CART_DETAIL (P_ID,CART_ID) VALUES (#{param1}, (SELECT CART_ID FROM CART WHERE U_ID = #{param2}))
+    	INSERT INTO CART_DETAIL (P_ID,CART_ID) VALUES (#{param1},(SELECT CART_ID FROM CART WHERE U_ID=#{param2}))
     </insert>
     
     <select id="CartViewDao" resultType="com.elapid.spring01.dto.CartViewDto">

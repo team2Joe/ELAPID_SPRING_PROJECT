@@ -39,7 +39,7 @@
 	%>
 
 		<form action="userOderForm.do" id="cart">
-			<c:forEach items="${Cart_View }" var="dtos">
+			<c:forEach items="${cart_View }" var="dtos">
 					<div class="container">
 						<div class="row">
 							<div class="col-1" style="padding: 75px 0px 0px 0px;">
