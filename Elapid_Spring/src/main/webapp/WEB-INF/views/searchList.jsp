@@ -5,9 +5,3 @@
 		<%@ include file="layout/productList.jsp" %>
 			
 <%@ include file="layout/footer.jsp"%>	
-		
-		
-		
-		
-		
-		

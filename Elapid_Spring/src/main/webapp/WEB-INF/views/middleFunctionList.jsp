@@ -1,12 +1,12 @@
 
-<%@page import="com.elapid.dao.ProductDao"%>
-<%@page import="com.elapid.dto.ProductListDto"%>
+<%@page import="com.elapid.spring01.dao.ProductDao"%>
+<%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 
-			<div class="row row-cols-1 row-cols-md-3 g-4">	
+<!-- 			<div class="row row-cols-1 row-cols-md-3 g-4">	 -->
 	 			<c:forEach items="${list }" var="dto">
 				 <div class="col">
 				    <div class="card h-100" align="center">
@@ -34,15 +34,15 @@
 				<td>
 			
 	<%
-			int count = (int)request.getAttribute("count");	
+// 			int count = (int)request.getAttribute("count");	
 	
-			for(int i=1; i<=count; i++){
+// 			for(int i=1; i<=count; i++){
 	%>			
 				<button onclick="location.href='middleFunctionList.do?page=<%=i %>'"><%=i %></button>
 	<%
-			}
-	%>
+// 			}
+	%> 
 				<td>
 			</tr>
 		</div>	
-		<%@ include file="/layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	
