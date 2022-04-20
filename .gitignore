@@ -3,10 +3,10 @@
 
 Servers
 Elapid_Spring/target
-*.xml
+
 .project
 .classpath
-.springBeans
+
 .settings
 
 

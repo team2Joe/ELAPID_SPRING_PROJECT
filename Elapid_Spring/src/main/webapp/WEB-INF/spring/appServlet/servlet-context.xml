@@ -14,6 +14,8 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources location="/elapid_img.backpack/" mapping="/img/**"/>
+	<resources location="/elapid_img.backpack/" mapping="/img/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -38,5 +40,37 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
+	<beans:bean name="eLoginCheck" class="com.elapid.spring01.command.ELoginCheckCommand"/>
+	<beans:bean name="eGoogleLogin" class="com.elapid.spring01.command.EGoogleLoginCommand"/>
+	<beans:bean name="eIdCheck" class = "com.elapid.spring01.command.EIdCheckCommand"/>
+	<beans:bean name="eRegisterCheck" class = "com.elapid.spring01.command.ERegisterCheckCommand"/>
+	<beans:bean name="eMyPage" class = "com.elapid.spring01.command.EMyPageCommand"/>
+	<beans:bean name="eProfileModify" class = "com.elapid.spring01.command.EProfileModifyCommand"/>
+	<beans:bean name="eProfileDelete" class = "com.elapid.spring01.command.EProfileDeleteCommand"/>
+	
+	
+	<beans:bean name="luggageList" class="com.elapid.spring01.command.ELuggageListCommand" />
+	<beans:bean name="luggageFilterList" class="com.elapid.spring01.command.ELuggageFilterListCommand" />
+	<!-- <beans:bean name="interestedProductList" class="com.elapid.spring01.command.EInterestedProductListCommand" />
+	 <beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
+	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> -->
+
+
+	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" ></beans:bean>
+	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" ></beans:bean>
+
+	
+	
+	
+	
+	
+	
 	
 </beans:beans>
+
+
+
+
+
+
+

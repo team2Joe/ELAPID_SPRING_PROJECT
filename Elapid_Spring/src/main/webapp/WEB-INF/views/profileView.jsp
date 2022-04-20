@@ -1,9 +1,9 @@
-<%@page import="com.elapid.dto.UserDto"%>
+<%@page import="com.elapid.spring01.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 
 <script language="javascript">
 // opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
@@ -71,7 +71,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
     	<div style="padding-top:100px; padding-bottom:100px; width: 1000px">
 	    	<h1> 회원정보 입력 </h1>
     	</div>
-      	<form class="register" id="usermodifyForm" action="profileModify.do" method="post">
+      	<form class="register" id="usermodifyForm" action="profileModify" method="post">
 			
 		  <div class="mb-3 row">
 		    <label for="inputPassword" class="col-sm-2 col-form-label">아이디 : </label>
@@ -196,7 +196,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
  
   
 	
-<%@ include file="/layout/footer.jsp"%>	
+<%@ include file="layout/footer.jsp"%>	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	<script src="js/basic.js"></script>
-	<script src="js/login.js"></script>
+	<script src="resources/js/basic.js"></script>
+	<script src="resources/js/login.js?ver=1"></script>

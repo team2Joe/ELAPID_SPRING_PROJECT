@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    
+ <mapper namespace="com.springlec.base0801.dao.IDao">
+ 
+ 	<select id="listDao" resultType="com.springlec.base0801.dto.ContentDto">
+ 		SELECT * FROM PRODUCT_QUESTION WHERE U_ID = (#{param1})  <!--대문자 cmd+shift+x  -->
+ 	</select>
+ 
+ 	<insert id="writeDao">
+		INSERT INTO PRODUCT_QUESTION(QC_NAME, PQ_TITLE, PQ_CONTENT, U_ID) VALUES (#{param1}, #{param2}, #{param3}, #{param4})	<!-- ? 2개 -->
+ 	</insert>
+ 
+ 	<insert id="deleteDao">
+		DELETE FROM PRODUCT_QUESTION WHERE PQ_ID = (#{param1})	
+ 	</insert>
+ 	
+ 	<update id="modifyDao">
+		UPDATE PRODUCT_QUESTION SET QC_NAME=(#{param1}), PQ_TITLE=(#{param2}), PQ_CONTENT=(#{param3}) WHERE PQ_ID = (#{param4})	
+ 	</update>
+
+ 	<select id="contentViewDao">
+		SELECT * FROM PRODUCT_QUESTION WHERE PQ_ID = (#{param1})	
+ 	</select>
+ 	
+ </mapper>

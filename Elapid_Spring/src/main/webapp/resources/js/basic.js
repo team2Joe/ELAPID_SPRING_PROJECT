@@ -1,8 +1,3 @@
-/**
-
- 
-*/
-
 
 
 function checkFile(){
@@ -44,7 +39,7 @@ function onSignIn(googleUser) {
 	
 	var form = document.getElementById("gform");
 	form.submit();
-//	post_to_url( "http://localhost:8080/ELAPID_jsp_project/googleLogin.do", {'username': username, 'email': email, 'img': img})
+//	post_to_url( "http://localhost:8080/ELAPID_jsp_project/googleLogin", {'username': username, 'email': email, 'img': img})
   
 }
 function signOut() {
@@ -56,7 +51,7 @@ function signOut() {
     console.log('User signed out.');
   });
   
-  	window.location.href = 'googleLogout.do';
+  	window.location.href = 'googleLogout';
 	
   
 }
@@ -117,11 +112,11 @@ function go() {
 
 function test(){
 	
-		location.href = "test.do";
+		location.href = "test";
 }
 function selectedCartOrder(){
 	var form = document.getElementById("cart");
-	form.action= "selectedReadInCart.do";
+	form.action= "selectedReadInCart";
 	form.submit();
 	
 }
@@ -129,19 +124,19 @@ function selectedCartOrder(){
 // 캐리어 전체 리스트	
 function navbtnlinkluggage() {
 
-	location.href = "luggageList.do";
+	location.href = "luggageList";
 }
 
 // 백팩 전체 리스트	
 function navbtnlinkbackpack() {
 	
-	location.href = "backpackList.do";
+	location.href = "backpackList";
 }
 
 // 주오기능 전체 리스트	
 function navbtnlinkfunction() {
 	
-	location.href = "middleFunctionList.do";
+	location.href = "middleFunctionList";
 }
 
 

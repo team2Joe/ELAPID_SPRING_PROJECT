@@ -14,7 +14,7 @@ public class EMainCommand implements ECommand {
 		HttpSession session = request.getSession();
 		String uid = ""; 
 		String uname = "";
-		UserDao dao = new UserDao();
+		UserDao2 dao = new UserDao2();
 		String comment = "";
 		uid = (String) session.getAttribute("uid");
 		

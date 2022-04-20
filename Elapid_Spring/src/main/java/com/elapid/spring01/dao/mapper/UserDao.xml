@@ -3,6 +3,23 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.springlec.base0801.dao.UserDao"> <!-- 자바 파일이름 써야됨  -->
-	
+<mapper namespace="com.elapid.spring01.dao.UserDao"> <!-- 자바 파일이름 써야됨  -->
+	<select id="loginCheck" resultType="_int">
+		SELECT COUNT(*) FROM USER WHERE U_ID = #{param1} AND U_PWD = #{param2}
+	</select>
+	<select id="nameReturn" resultType="string">
+		SELECT U_NAME FROM USER WHERE U_ID = #{param1}
+	</select>
+	<insert id="userAdd" >
+		INSERT INTO USER (U_ID, U_PWD, U_NAME,U_EMAIL, U_TEL, U_GENDER, U_BIRTHDATE, U_POINT, U_GRADE, U_REGISTERDATE ) VALUES (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7} ,0 ,'브론즈' ,NOW())
+	</insert>
+	<select id="profileView" resultType="com.elapid.spring01.dto.UserDto">
+		SELECT * FROM USER WHERE U_ID = #{param1}
+	</select>
+	<update id="profileModify">
+		UPDATE USER SET U_EMAIL = #{param1} ,U_PWD=#{param2} , U_TEL= #{param3} , U_GENDER = #{param4}, U_BIRTHDATE = #{param5} WHERE U_ID = #{param6}
+	</update>
+	<delete id="profileDelete">
+		DELETE FROM USER WHERE U_ID = #{param1}
+	</delete>
 </mapper>

@@ -1,15 +1,14 @@
-<%@page import="org.apache.catalina.ant.jmx.JMXAccessorQueryTask"%>
-<%@page import="com.elapid.dto.RegisterDto"%>
-<%@page import="com.elapid.dto.UserDto"%>
-<%@page import="com.elapid.dto.RegisterJoinDto"%>
-<%@page import="com.elapid.dto.ProductListDto"%>
+<%@page import="com.elapid.spring01.dto.RegisterDto"%>
+<%@page import="com.elapid.spring01.dto.UserDto"%>
+<%@page import="com.elapid.spring01.dto.RegisterJoinDto"%>
+<%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 <meta charset="UTF-8">
 <title>UserOrderPage</title>
 </head>
@@ -235,4 +234,4 @@ ArrayList<ProductListDto> pListDtos = (ArrayList<ProductListDto>) request.getAtt
 	<script src="js/order.js"></script>
 </body>
 
-<%@ include file="/layout/footer.jsp"%>
+<%@ include file="layout/footer.jsp"%>

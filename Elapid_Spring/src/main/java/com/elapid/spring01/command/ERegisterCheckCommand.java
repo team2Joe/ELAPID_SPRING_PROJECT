@@ -1,18 +1,28 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
+
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.CartOrderDao;
-import com.elapid.dao.RegisterDao;
-import com.elapid.dao.UserDao;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.CartOrderDao;
+import com.elapid.spring01.dao.UserDao;
+import com.elapid.spring01.dao.UserDao2;
 
 public class ERegisterCheckCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession,Model model) {
 		// TODO Auto-generated method stub
-		UserDao dao = new UserDao();
+		
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		UserDao dao = sqlSession.getMapper(UserDao.class);
+		UserDao2 dao2 = new UserDao2();
 		
 		String uid = request.getParameter("uid");
 		String upwd = request.getParameter("upassword");
@@ -36,19 +46,21 @@ public class ERegisterCheckCommand implements ECommand {
 		String addspecificaddress = request.getParameter("addrDetail");
 		String addpostnumber = request.getParameter("zipNo");
 		
-		int searchresult = dao.searchAddress(addpostnumber, addaddress);
+		int searchresult = dao2.searchAddress(addpostnumber, addaddress);
 		
 		if(searchresult >= 1) {// 주소북에 같은 주소 있을 시 add_id 받아와서 relation에만 저장 
-			dao.registerAdd(uid, searchresult, addspecificaddress,uname,utel, 1);
+			dao2.registerAdd(uid, searchresult, addspecificaddress,uname,utel, 1);
 		}else { // 주소북에 같은 주소 없을 시 주소북에 주소 저장후 relation 에 상세 주소 저장
-			dao.addressAdd(addpostnumber, addaddress);
-			int addid =  dao.searchAddress(addpostnumber, addaddress);
-			dao.registerAdd(uid,addid, addspecificaddress,uname,utel,1);
+			dao2.addressAdd(addpostnumber, addaddress);
+			int addid =  dao2.searchAddress(addpostnumber, addaddress);
+			dao2.registerAdd(uid,addid, addspecificaddress,uname,utel,1);
 			
 		}
-		
+
 		
 	}
-
+	@Override
+	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+	}
 }
 

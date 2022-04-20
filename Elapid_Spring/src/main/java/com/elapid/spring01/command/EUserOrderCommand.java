@@ -1,28 +1,35 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.CartOrderDao;
-import com.elapid.dao.OrderDao;
-import com.elapid.dao.UserDao;
-import com.elapid.dto.RegisterJoinDto;
-import com.elapid.dto.UserDto;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.CartOrderDao;
+import com.elapid.spring01.dao.OrderDao;
+import com.elapid.spring01.dao.UserDao2;
+import com.elapid.spring01.dto.RegisterJoinDto;
+import com.elapid.spring01.dto.UserDto;
 
 public class EUserOrderCommand implements ECommand {
 
+	
+	
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+	public void execute_session(SqlSession sqlSession,Model model,HttpSession session, HttpServletRequest request) {
+		Map<String, Object> map = model.asMap();
+		request = (HttpServletRequest) map.get("request");
+		
+		session = request.getSession();
 		
 		OrderDao oDao = new OrderDao();
 		CartOrderDao cDao = new CartOrderDao();
-		UserDao uDao = new UserDao();
+		UserDao2 uDao = new UserDao2();
 		
 		String uid = (String) session.getAttribute("uid");
 		int add_id = Integer.parseInt(request.getParameter("uo_address"));		
@@ -51,15 +58,11 @@ public class EUserOrderCommand implements ECommand {
 				p_ids.add(Integer.parseInt(strp_ids[i]));
 			}
 			
-			
-			
 		}
-		
 		
 		int uo_amount = Integer.parseInt(request.getParameter("uo_amount"));
 		int uo_discountedamount = Integer.parseInt(request.getParameter("uo_discountedamount"));
 		int uo_shippingfee = Integer.parseInt(request.getParameter("uo_shippingfee"));
-		
 		
 		// 주소록 키값으로 주소 불러오기
 		RegisterJoinDto rdto = new RegisterJoinDto();
@@ -71,12 +74,13 @@ public class EUserOrderCommand implements ECommand {
 		// 가장 최근 주문번호 찾아서 주문 상세 테이블 입력할 떄 같이 넣기  
 		int uo_id =  oDao.searchLatestOrderForUser(uid);
 		oDao.userOrderDetailWrite(p_ids, uo_id);
-		
-		
-		
-		
-		
-		
+
+
+	}
+
+	@Override
+	public void execute(SqlSession sqlSession, Model model) {
+
 		
 	}
 

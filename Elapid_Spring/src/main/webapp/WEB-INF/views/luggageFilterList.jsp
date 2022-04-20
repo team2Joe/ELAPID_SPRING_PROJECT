@@ -1,9 +1,9 @@
 
-<%@page import="com.elapid.dao.ProductDao"%>
-<%@page import="com.elapid.dto.ProductListDto"%>
-<%@page import="com.elapid.dto.ProductDto"%>
+<%@page import="com.elapid.spring01.dao.ProductDao"%>
+<%@page import="com.elapid.spring01.dto.ProductListDto"%>
+<%@page import="com.elapid.spring01.dto.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ include file="/layout/header.jsp"%>
+<%@ include file="layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
@@ -18,7 +18,7 @@
 	<div class="div1">
 		<h4>필터</h4>
 		
-		<form action="luggageFilterList.do">
+		<form action="luggageFilterList">
 			<h5>크기</h5>
 				기내용/소형 <input type="checkbox" name="ctg_middle" value="small">
 				중형수하물 <input type="checkbox" name="ctg_middle" value="middle">
@@ -108,14 +108,12 @@
 			}
 			// luggageFilterList 페이지 수
 			int count = (int)request.getAttribute("count");	
-
-			ArrayList<ProductListDto> list = (ArrayList<ProductListDto>)request.getAttribute("list");
 	
 			for(int i=1; i<=count; i++){
 	%>			
 																<%--필터에서 검색해온 get url 정보를 다시 getUrl에
 																	넣고 전송 --%>
-				<button onclick="location.href='luggageFilterList.do?<%=getUrl %>&page=<%=i %>'"><%=i %></button>
+				<button onclick="location.href='luggageFilterList?<%=getUrl %>&page=<%=i %>'"><%=i %></button>
 	<%
 			}
 	%>
@@ -123,7 +121,7 @@
 			</tr>
 		</div>		
 			
-		<%@ include file="/layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	
 		
 		
 		

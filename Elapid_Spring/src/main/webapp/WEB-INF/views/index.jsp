@@ -7,7 +7,7 @@
 <div class="accordion" id="accordionExample" align="center">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button onclick="location.href='interestedProductList.do'" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button onclick="location.href='interestedProductList'" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         조회수 상품 TOP 3
       </button>
     </h2>
@@ -38,7 +38,7 @@
 				      </div>
 				      <div class="card-footer">
 				 	<%-- 아이디값 null시 비회원 장바구니로 들어가기 --%>
-							<button class="btn btn-dark" onclick = "location.href='addCart.do?p_id=${dto.p_id}'">장바구니 담기</button>
+							<button class="btn btn-dark" onclick = "location.href='addCart?p_id=${dto.p_id}'">장바구니 담기</button>
 				      </div>
 				    </div>
 				  </div>	

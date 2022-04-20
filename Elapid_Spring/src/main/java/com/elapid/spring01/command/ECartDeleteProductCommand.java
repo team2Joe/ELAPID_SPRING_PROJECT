@@ -1,4 +1,4 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
