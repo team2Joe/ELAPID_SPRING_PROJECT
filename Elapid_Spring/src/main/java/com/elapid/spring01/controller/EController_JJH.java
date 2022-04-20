@@ -96,6 +96,7 @@ public class EController_JJH {
 		return "searchList";
 	}	
 	
+	// 조회수 많은 순 페이지
 	@RequestMapping("interestedProductList")
 	public String interestedProductList(Model model) {
 		

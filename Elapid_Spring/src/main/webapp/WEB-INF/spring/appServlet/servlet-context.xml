@@ -41,6 +41,7 @@
 		<beans:property name="dataSource" ref = "dataSource" />		
 		<beans:property name="mapperLocations" value="classpath:com/elapid/spring01/dao/mapper/*.xml" />
 	</beans:bean>
+	
 	<beans:bean name="sqlSession" class = "org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
