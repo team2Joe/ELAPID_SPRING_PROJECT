@@ -39,7 +39,7 @@
 	%>
 
 		<form action="userOderForm.do" id="cart">
-			<c:forEach items="${Cart_View }" var="dtos">
+			<c:forEach items="${cart_View }" var="dtos">
 					<div class="container">
 						<div class="row">
 							<div class="col-1" style="padding: 75px 0px 0px 0px;">
@@ -54,7 +54,7 @@
 							<div class="col-2" align="left">
 							<a href="detailView.do?p_id=${dtos.p_id }&ctg_middle=${dtos.ctg_middle}"> <img
 
-									src="${dtos.img_thum }" width="100" height="150"></a>
+									src="resources/${dtos.img_thum }" width="100" height="150"></a>
 							</div>
 							<!-- 상품 정보 -->
 							<div class="col-4" align="left">

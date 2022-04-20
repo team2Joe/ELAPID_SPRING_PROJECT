@@ -21,10 +21,12 @@ public class ECartViewCommand implements ECommand {
 		// TODO Auto-generated method stub
 
 	session = request.getSession();//u_id Session
-	//String u_id =(String) session.getAttribute("uid");
-	String u_id = "elapid01";
-	 
+	String u_id =(String) session.getAttribute("uid");
+	//String u_id = "elapid01";
 	UserCartDao dao = sqlSession.getMapper(UserCartDao.class);
+	
+	//System.out.println("******************"+dao.CartViewDao(u_id));
+	
 	model.addAttribute("cart_View", dao.CartViewDao(u_id));
 	
 	}
