@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.elapid.spring01.command.ECommand;
+import com.elapid.spring01.dao.AdminProductDao;
 import com.elapid.spring01.dao.ProductDao;
+import com.elapid.spring01.dto.PidDto;
 import com.elapid.spring01.util.Constant;
 
 @Controller
@@ -35,7 +37,6 @@ public class EController_JJH {
 	private ECommand search = null;
 	private ECommand middleList = null;
 	private ECommand registerProduct = null;
-	
 	
 	@Autowired
 	public void auto(ECommand luggageList, ECommand luggageFilterList,
@@ -121,8 +122,7 @@ public class EController_JJH {
 	public String registerProduct(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("request", request);
-		registerProduct.execute(sqlSession, model);
-		
+		registerProduct.execute(sqlSession, model);	
 		return "index";
 	}
 	

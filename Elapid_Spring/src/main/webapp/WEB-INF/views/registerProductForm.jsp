@@ -102,7 +102,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" value="제품등록"></td>
+					<td><input type="submit" onclick="registProductCheck()" value="제품등록"></td>
 				</tr>
 			</table>
 		</form>

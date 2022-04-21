@@ -66,13 +66,6 @@ public class ERegisterProductCommand implements ECommand {
 		
 		//category_detail
 		
-		// 상품ID값 받아오기
-		Integer.parseInt(dao.selectPidNum());
-		
-		// 상품과 카테고리, 이미지, 스펙 사이의
-		// 릴레이션 외래키에 해당 p_id number 넣어주기
-		dao.insertRelationProductForeignKey(selectPidNum, selectPidNum, selectPidNum,
-				selectPidNum, selectPidNum, selectPidNum);
 		
 		//product_image
 		int size = 10*1024*1024;
@@ -115,8 +108,7 @@ public class ERegisterProductCommand implements ECommand {
 		      
 		   }catch(Exception e){
 		      e.printStackTrace();
-		   }
-		   
+		   }		   
 		// 업로드 끝
 
 		   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
@@ -124,6 +116,14 @@ public class ERegisterProductCommand implements ECommand {
 				    ctg_main, ctg_middle, ctg_sub,
 				   img_thum, img_01, img_02, img_03, img_04, img_05, img_06);
 
+		// 상품ID값 받아오기
+		   int selectPidNum = dao.selectPidNum().getP_id();
+		   
+		// 상품과 카테고리, 이미지, 스펙 사이의 릴레이션 외래키에 해당 p_id number 넣어주기
+		// registerProduct 메서드를 실행해주고 해당 메서드에서 생성된 p_id값을 릴레이션 테이블에 넣어주는
+	    // 메서드이다.
+		   dao.insertRelationProductForeignKey(selectPidNum, selectPidNum, selectPidNum,
+				   selectPidNum, selectPidNum, selectPidNum);
 	}
 
 	@Override

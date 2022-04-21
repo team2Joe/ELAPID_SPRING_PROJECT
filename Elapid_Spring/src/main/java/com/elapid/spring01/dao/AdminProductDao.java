@@ -1,5 +1,6 @@
 package com.elapid.spring01.dao;
 
+import com.elapid.spring01.dto.PidDto;
 import com.elapid.spring01.dto.ProductDetailDto;
 
 public interface AdminProductDao {
@@ -13,8 +14,10 @@ public interface AdminProductDao {
 			String img_04, String img_05, String img_06);
 	
 	//상품id number 반환
-	public void selectPidNum();
+	public PidDto selectPidNum();
 	
+	// 상품과 카테고리, 이미지, 스펙 사이의
+	// 릴레이션 외래키에 해당 p_id number 넣어주기
 	public void insertRelationProductForeignKey(int selectPidNum, int selectPidNum02,
 			 int selectPidNum03, int selectPidNum04, int selectPidNum05, int selectPidNum06);
 	

@@ -6,6 +6,7 @@ public class RegistProductDto {
 	private int p_stock;
 	private int p_price;
 	private int p_size;
+	private String p_mainf;
 	private String ps_color;
 	private String ps_material;
 	private String ps_size;
@@ -14,7 +15,6 @@ public class RegistProductDto {
 	private String ps_width;
 	private String ps_volume;
 	private String ps_weight;
-	private String p_mainf;
 	private String ctg_main;
 	private String ctg_middle;
 	private String ctg_sub;
@@ -29,15 +29,16 @@ public class RegistProductDto {
 	public RegistProductDto() {
 	}
 
-	public RegistProductDto(String p_name, int p_stock, int p_price, int p_size, String ps_color, String ps_material,
+	public RegistProductDto(String p_name, int p_stock, int p_price, int p_size, String p_mainf, String ps_color, String ps_material,
 			String ps_size, String ps_height, String ps_depth, String ps_width, String ps_volume, String ps_weight,
-			String p_mainf, String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String img_01,
+			 String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String img_01,
 			String img_02, String img_03, String img_04, String img_05, String img_06) {
 		super();
 		this.p_name = p_name;
 		this.p_stock = p_stock;
 		this.p_price = p_price;
 		this.p_size = p_size;
+		this.p_mainf = p_mainf;
 		this.ps_color = ps_color;
 		this.ps_material = ps_material;
 		this.ps_size = ps_size;
@@ -46,7 +47,6 @@ public class RegistProductDto {
 		this.ps_width = ps_width;
 		this.ps_volume = ps_volume;
 		this.ps_weight = ps_weight;
-		this.p_mainf = p_mainf;
 		this.ctg_main = ctg_main;
 		this.ctg_middle = ctg_middle;
 		this.ctg_sub = ctg_sub;

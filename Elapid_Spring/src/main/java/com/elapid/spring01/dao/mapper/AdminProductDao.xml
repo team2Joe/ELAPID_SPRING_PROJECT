@@ -19,12 +19,13 @@
 	)
 </insert>
 
-<select id="selectPidNum" resultType="int">
+<!-- p_id값 받아오기 -->
+<select id="selectPidNum" resultType="com.elapid.spring01.dto.PidDto">
 	SELECT P_ID FROM PRODUCT
 	ORDER BY P_ID DESC LIMIT 1;
 </select>
 
-<!-- selectPidNum으로 받아온 p_id값을 각각의 릴레이션 테이블에 넣기 -->
+<!-- selectPidNum으로 받아온 p_id값을 각각의 릴레이션 테이블에 프로시저로 넣기 -->
 <insert id="insertRelationProductForeignKey">
 	call insertRelationProductForeignKey(
 		#{param1}, #{param2}

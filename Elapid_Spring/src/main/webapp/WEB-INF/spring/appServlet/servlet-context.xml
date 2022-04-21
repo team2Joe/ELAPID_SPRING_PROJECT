@@ -66,6 +66,9 @@
 <!-- 	<beans:bean name="modifyProduct" class="com.elapid.spring01.command.EModifyProductCommand"/> -->
 <!-- 	<beans:bean name="deleteProduct" class="com.elapid.spring01.command.EDeleteProductCommand"/> -->
 	
+	<!-- AdminProductdao -->
+<!-- 	<beans:bean name="selectPidNumDao" class="com.elapid.spring01.dao.AdminProductDao"/> -->
+<!-- 	<beans:bean name="insertRelationProductForeignKeyDao" class="com.elapid.spring01.dao.AdminProductDao"/> -->
 
 	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" />
 	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" />
