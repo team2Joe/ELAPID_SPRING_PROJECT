@@ -1,5 +1,8 @@
 package com.elapid.spring01.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -123,9 +126,9 @@ public class EController_JJH {
 		
 		model.addAttribute("request", request);
 		registerProduct.execute(sqlSession, model);	
+		
 		return "index";
 	}
-	
 	
 	// 상품 수정 페이지
 	@RequestMapping("modifyProductForm")

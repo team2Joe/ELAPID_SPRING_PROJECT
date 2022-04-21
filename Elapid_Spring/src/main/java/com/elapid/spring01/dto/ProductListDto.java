@@ -1,5 +1,6 @@
 package com.elapid.spring01.dto;
 
+import java.sql.Blob;
 import java.sql.Timestamp;
 
 public class ProductListDto {

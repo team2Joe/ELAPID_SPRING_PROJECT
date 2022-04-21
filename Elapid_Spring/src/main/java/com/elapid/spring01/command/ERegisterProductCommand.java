@@ -2,6 +2,7 @@ package com.elapid.spring01.command;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.AdminProductDao;
+import com.elapid.spring01.dto.RegistProductDto;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -19,6 +21,7 @@ public class ERegisterProductCommand implements ECommand {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		
+		RegistProductDto dto = new RegistProductDto();
 		
 		AdminProductDao dao = sqlSession.getMapper(AdminProductDao.class);
 		
@@ -28,13 +31,13 @@ public class ERegisterProductCommand implements ECommand {
 		
 		HttpSession session = request.getSession();
 		
-		String uploadPath=request.getRealPath("/resources/upload");;
+		String uploadPath=request.getRealPath("/resources/elapid_img");;
 		MultipartRequest mr =null; 
 				
 		try {
 			mr = new MultipartRequest(request, uploadPath,1024*1024*10,"UTF-8", new DefaultFileRenamePolicy());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 
@@ -58,14 +61,12 @@ public class ERegisterProductCommand implements ECommand {
 		
 		//product_detail
 		
-		
 		// category
 		String ctg_main = mr.getParameter("ctg_main");
 		String ctg_middle = mr.getParameter("ctg_middle");
 		String ctg_sub = mr.getParameter("ctg_sub");
 		
 		//category_detail
-		
 		
 		//product_image
 		int size = 10*1024*1024;
@@ -79,6 +80,10 @@ public class ERegisterProductCommand implements ECommand {
 		   
 		//image_detail   
 		   
+		   
+		   
+		   
+		   // MultipartRequest
 		   try{
 		      MultipartRequest multi=new MultipartRequest(request,
 		                     uploadPath,
@@ -86,35 +91,49 @@ public class ERegisterProductCommand implements ECommand {
 		                     "utf-8",
 		            new DefaultFileRenamePolicy());
 
-		      
 		      Enumeration files=multi.getFileNames();
 		      
 		      String fileThum =(String)files.nextElement();
-		      String file1 =(String)files.nextElement();
-		      String file2 =(String)files.nextElement();
-		      String file3 =(String)files.nextElement();
-		      String file4 =(String)files.nextElement();
-		      String file5 =(String)files.nextElement();
-		      String file6 =(String)files.nextElement();
-		      
-		      
 		      img_thum = multi.getFilesystemName(fileThum);
+		      
+		      String file1 =(String)files.nextElement();
 		      img_01 = multi.getFilesystemName(file1);
+		      
+		      String file2 =(String)files.nextElement();
 		      img_02 = multi.getFilesystemName(file2);
+		      
+		      String file3 =(String)files.nextElement();
 		      img_03 = multi.getFilesystemName(file3);
+		      
+		      String file4 =(String)files.nextElement();
 		      img_04 = multi.getFilesystemName(file4);
+		      
+		      String file5 =(String)files.nextElement();
 		      img_05 = multi.getFilesystemName(file5);
+		      
+		      String file6 =(String)files.nextElement();
 		      img_06 = multi.getFilesystemName(file6);
 		      
 		   }catch(Exception e){
 		      e.printStackTrace();
-		   }		   
+		   }		
+		   
 		// 업로드 끝
-
-		   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
-				   ps_size, ps_height, ps_depth, ps_width, ps_volume, ps_weight,
-				    ctg_main, ctg_middle, ctg_sub,
-				   img_thum, img_01, img_02, img_03, img_04, img_05, img_06);
+			
+//			//Blob
+//			   try {
+//			        Map<String, Object> imageMap = new HashMap<String, Object>();
+//			        imageMap.put("img_thum", dto.getImg_thum().getBinaryStream());
+//			        
+//			        
+//			    } catch (Exception e) {
+//			        e.printStackTrace();
+//			    }
+			   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
+					   ps_size, ps_height, ps_depth, ps_width, ps_volume, ps_weight,
+					   ctg_main, ctg_middle, ctg_sub,
+					   img_thum, img_01, img_02, img_03, img_04, img_05, img_06);
+			   
 
 		// 상품ID값 받아오기
 		   int selectPidNum = dao.selectPidNum().getP_id();

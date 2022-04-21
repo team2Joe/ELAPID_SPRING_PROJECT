@@ -64,8 +64,6 @@ padding : 0 0 200px 200px;
 						<c:forEach var="i" begin="1" end="${count }">
 							<button onclick="location.href='luggageList?page=${i}'">${i}</button>
 						</c:forEach>				
-
-		
 					<td>
 				</tr>
 		</div>		

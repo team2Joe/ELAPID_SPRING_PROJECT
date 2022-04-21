@@ -1,5 +1,7 @@
 package com.elapid.spring01.dto;
 
+import java.sql.Blob;
+
 public class RegistProductDto {
 	
 	private String p_name;
