@@ -61,6 +61,11 @@
 	<beans:bean name="interestedProductList" class="com.elapid.spring01.command.EInterestedProductListCommand" />
 	<beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
 	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> 
+	<beans:bean name="registerProduct" class="com.elapid.spring01.command.ERegisterProductCommand"/>
+<!-- 	<beans:bean name="modifyProductForm" class="com.elapid.spring01.command.EModifyProductFormCommand"/> -->
+<!-- 	<beans:bean name="modifyProduct" class="com.elapid.spring01.command.EModifyProductCommand"/> -->
+<!-- 	<beans:bean name="deleteProduct" class="com.elapid.spring01.command.EDeleteProductCommand"/> -->
+	
 
 	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" />
 	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" />

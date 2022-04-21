@@ -34,17 +34,21 @@ public class EController_JJH {
 	private ECommand detailView = null;
 	private ECommand search = null;
 	private ECommand middleList = null;
+	private ECommand registerProduct = null;
+	
 	
 	@Autowired
 	public void auto(ECommand luggageList, ECommand luggageFilterList,
 			ECommand detailView, ECommand search,
-			ECommand interestedProductList, ECommand middleList) {
+			ECommand interestedProductList, ECommand middleList,
+			ECommand registerProduct) {
 		this.luggageList = luggageList;
 		this.luggageFilterList = luggageFilterList;
 		this.interestedProductList = interestedProductList;
 		this.detailView = detailView;
 		this.search = search;
 		this.middleList = middleList;
+		this.registerProduct = registerProduct;
 	}
 	
 	//캐리어 전체 리스트 
@@ -116,7 +120,10 @@ public class EController_JJH {
 	@RequestMapping("registerProduct")
 	public String registerProduct(HttpServletRequest request, Model model) {
 		
-		return "registerProduct";
+		model.addAttribute("request", request);
+		registerProduct.execute(sqlSession, model);
+		
+		return "index";
 	}
 	
 	

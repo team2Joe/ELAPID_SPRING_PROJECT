@@ -4,5 +4,34 @@
     
 <mapper namespace="com.elapid.spring01.dao.AdminProductDao">
 
+<!-- 프로시저로 호출 -->
+<insert id="registerProduct">
+	call insertQueries(
+    #{param1}, #{param2}, #{param3},
+    #{param4}, #{param5},	
+	#{param6}, #{param7}, #{param8},
+	#{param9}, #{param10}, #{param11},
+	#{param12}, #{param13},
+	#{param14}, #{param15}, #{param16},
+	#{param17}, #{param18}, #{param19}, 
+	#{param20}, #{param21}, #{param22}, 
+	#{param23}
+	)
+</insert>
 
+<select id="selectPidNum" resultType="int">
+	SELECT P_ID FROM PRODUCT
+	ORDER BY P_ID DESC LIMIT 1;
+</select>
+
+<!-- selectPidNum으로 받아온 p_id값을 각각의 릴레이션 테이블에 넣기 -->
+<insert id="insertRelationProductForeignKey">
+	call insertRelationProductForeignKey(
+		#{param1}, #{param2}
+		, #{param3}, #{param4}
+		, #{param5}, #{param6}
+	)
+	
+</insert>
+	
 </mapper>

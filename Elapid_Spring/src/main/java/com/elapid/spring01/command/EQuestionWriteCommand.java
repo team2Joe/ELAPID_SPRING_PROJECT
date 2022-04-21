@@ -27,17 +27,15 @@ public class EQuestionWriteCommand implements ECommand {
 		Map<String, Object> map = model.asMap();
 		request = (HttpServletRequest) map.get("request");
 		
-		
 		String uploadPath=request.getRealPath("/resources/upload");;
 		MultipartRequest mr =null; 
 				
 		try {
 			mr = new MultipartRequest(request, uploadPath,1024*1024*10,"UTF-8", new DefaultFileRenamePolicy());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
-				
 		
 		String qc_name = mr.getParameter("qc_name");
 		
@@ -58,8 +56,7 @@ public class EQuestionWriteCommand implements ECommand {
 		                     size, 
 		                     "utf-8",
 		            new DefaultFileRenamePolicy());
-
-		      
+      
 		      Enumeration files=multi.getFileNames();
 		      
 		      String file1 =(String)files.nextElement();
@@ -70,7 +67,6 @@ public class EQuestionWriteCommand implements ECommand {
 		   
 		// 업로드 끝
 		
-	
 		QnaDao dao = sqlSession.getMapper(QnaDao.class);
 		//model.addAttribute("questionWrite", dao.writeDao());
 		dao.writeDao(qc_name, size, pq_title, pq_content, uid);

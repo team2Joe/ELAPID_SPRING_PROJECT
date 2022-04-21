@@ -3,8 +3,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<h2 align="center">상품 등록</h2>
+	<br>
 	<div align="center">
-		<form action="registerProduct" method="post">
+		<form action="registerProduct" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td align="right">상품명: </td>
@@ -19,8 +20,8 @@
 					<td><input type="text" name="p_price"></td>
 				</tr>
 				<tr>
-					<td align="right">사이즈(55, 66, 77): </td>
-					<td><input type="text" name="p_size"></td>
+					<td align="right">사이즈: </td>
+					<td><input type="text" name="p_size">(55, 66, 77)</td>
 				</tr>
 				<tr>
 					<td align="right">제품색상: </td>
@@ -33,7 +34,7 @@
 				</tr>
 				<tr>
 					<td align="right">사이즈: </td>
-					<td><input type="text" name="ps_size"></td>
+					<td><input type="text" name="ps_size">(55, 66, 77)</td>
 				</tr>
 				<tr>
 					<td align="right">높이: </td>
@@ -57,15 +58,15 @@
 				</tr>
 				<tr>
 					<td align="right">주요기능: </td>
-					<td><input type="text" name="p_mainf"></td>
+					<td><input type="text" name="p_mainf">(서스펜션휠, 자동제어장치, 지문인식, rfid)</td>
 				</tr>
 				<tr>
 					<td align="right">제품분류(main): </td>
-					<td><input type="text" name="ctg_main"></td>
+					<td><input type="text" name="ctg_main">(Luggage, Backpack)</td>
 				</tr>
 				<tr>
 					<td align="right">제품분류(middle): </td>
-					<td><input type="text" name="ctg_middle"></td>
+					<td><input type="text" name="ctg_middle">(Small, Middle, Large)</td>
 				</tr>
 				<tr>
 					<td align="right">제품분류(sub): </td>
@@ -96,7 +97,7 @@
 					<td><input type="file" name="img_05"></td>
 				</tr>
 				<tr>
-					<td align="left">제품사진06: </td>
+					<td align="right">제품사진06: </td>
 					<td><input type="file" name="img_06"></td>
 				</tr>
 				<tr>
