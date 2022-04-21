@@ -20,6 +20,7 @@ public class EVisitorCountCommand implements ECommand {
 	public void execute(SqlSession sqlSession, Model model) {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
 		String funnel = request.getParameter("funnel") != null ? request.getParameter("funnel"):"homepage";
 		
 		LogDao dao = sqlSession.getMapper(LogDao.class);
@@ -29,13 +30,20 @@ public class EVisitorCountCommand implements ECommand {
 		if (ip == null)
 			ip = request.getRemoteAddr();
 		
-		DatesDto datesDto = dao.returnLatestDateTime(ip);
-		int date = Integer.parseInt(datesDto.getDate());
-		int nowDate = Integer.parseInt(datesDto.getNowdate());
+		dao.visitorCount(ip, funnel);
 		
-		if(nowDate - date >= 6000) {
-			dao.visitorCount(ip,funnel);
-		}
+//		if(dao.returnLatestDateTime(ip) != null) {
+//		
+//			DatesDto datesDto = dao.returnLatestDateTime(ip);
+//			Long date = Long.parseLong(datesDto.getDate());
+//			Long nowDate = Long.parseLong(datesDto.getNowdate());
+//			dao.visitorCount(ip, nowDate-date>=6000 ? funnel : "revisit" );
+//		}else {
+//			dao.visitorCount(ip, funnel);
+//		}
+//		
+		System.out.println("*************"+ip);
+		
 		
 	}
 

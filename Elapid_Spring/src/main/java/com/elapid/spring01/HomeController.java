@@ -45,13 +45,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpServletRequest request) {
-		request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
-		String ip = null; 
-		//= request.getHeader("X-FORWARDED-FOR");
-		if (ip == null)
-			ip = request.getRemoteAddr();
-		System.out.println("*************"+ip);
-		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -60,6 +53,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		
 		model.addAttribute("request",request);
 		
 		eVisitCountCommand.execute(sqlSession, model);

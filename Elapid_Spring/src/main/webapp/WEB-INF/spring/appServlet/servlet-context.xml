@@ -52,7 +52,7 @@
 	<beans:bean name="eProfileModify" class = "com.elapid.spring01.command.EProfileModifyCommand"/>
 	<beans:bean name="eProfileDelete" class = "com.elapid.spring01.command.EProfileDeleteCommand"/>
 	<beans:bean name="visitorCount" class = "com.elapid.spring01.command.EVisitorCountCommand"/>
-	
+	<beans:bean name="eAdminDashboardTable" class = "com.elapid.spring01.command.EAdminDashboardTableCommand"/>
 	
 	<beans:bean name="luggageList" class="com.elapid.spring01.command.ELuggageListCommand" />
 	<beans:bean name="luggageFilterList" class="com.elapid.spring01.command.ELuggageFilterListCommand" />

@@ -5,10 +5,22 @@
     
 <mapper namespace="com.elapid.spring01.dao.LogDao"> <!-- 자바 파일이름 써야됨  -->
 	<insert id="visitorCount">
-		INSERT INTO VISITOR(IP,FUNNEL,DATE) VALUES(#{param1},#{param2},NOW())
+		INSERT INTO VISITOR(IP,FUNNEL,DATE)
+		(SELECT #{param1} AS IP,'revisit' AS FUNNEL,NOW() AS DATE
+		FROM VISITOR 
+		WHERE EXISTS (SELECT * FROM VISITOR WHERE DATE BETWEEN DATE_SUB(NOW(),INTERVAL 1 HOUR) AND NOW() AND IP = #{param1}) AND IP = #{param1}
+		ORDER BY DATE DESC
+		LIMIT 1)
+		UNION ALL
+		(SELECT #{param1} AS IP, #{param2} AS FUNNEL, NOW() AS DATE
+		FROM VISITOR
+		WHERE NOT EXISTS (SELECT * FROM VISITOR WHERE DATE BETWEEN DATE_SUB(NOW(),INTERVAL 1 HOUR) AND NOW() AND IP = #{param1}) AND IP = #{param1}
+		ORDER BY DATE DESC
+		LIMIT 1
+		);
 	</insert>
 	<select id="returnLatestDateTime" resultType="com.elapid.spring01.dto.DatesDto" >
-		SELECT DATE_FORMAT(DATE,'%y%m%d%k%i%s') AS DATE,DATE_FORMAT(NOW(),'%y%m%d%k%i') AS NOWDATE FROM VISITOR WHERE IP = #{param1} ORDER BY DATE DESC LIMIT 1
+		SELECT DATE_FORMAT(DATE,'%y%m%d%k%i%s') AS DATE,DATE_FORMAT(NOW(),'%y%m%d%k%i%s') AS NOWDATE FROM VISITOR WHERE IP = #{param1} ORDER BY DATE DESC LIMIT 1
 	</select>
 	
 </mapper>

@@ -31,7 +31,5 @@ public class DatesDto {
 		this.nowdate = nowdate;
 	}
 	
-	
-	
 
 }

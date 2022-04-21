@@ -36,6 +36,7 @@ public class KTEController {
 	private ECommand eMyPageCommand = null ;
 	private ECommand eProfileModifyCommand = null ;
 	private ECommand eProfileDeleteCommand = null ;
+	private ECommand eAdminDashboardTableCommand = null ;
 	
 	private JdbcTemplate template;
 	
@@ -44,7 +45,11 @@ public class KTEController {
 	private SqlSession sqlSession;
 	
 	@Autowired
-	public void Auto(ECommand eLoginCheck, ECommand eGoogleLogin, ECommand eIdCheck, ECommand eRegisterCheck,ECommand eMyPage,ECommand eProfileModify,ECommand eProfileDelete) {
+	public void Auto(
+			ECommand eLoginCheck, ECommand eGoogleLogin, ECommand eIdCheck, ECommand eRegisterCheck,ECommand eMyPage
+			,ECommand eProfileModify,ECommand eProfileDelete,ECommand eAdminDashboardTable
+			) 
+	{
 		this.eLoginCheckCommand = eLoginCheck;
 		this.eGoogleLoginCommand = eGoogleLogin;
 		this.eIdCheckCommand= eIdCheck;
@@ -52,6 +57,7 @@ public class KTEController {
 		this.eMyPageCommand= eMyPage;
 		this.eProfileModifyCommand= eProfileModify;
 		this.eProfileDeleteCommand= eProfileDelete;
+		this.eAdminDashboardTableCommand = eAdminDashboardTable;
 	}
 	
 	@Autowired
@@ -257,10 +263,12 @@ public class KTEController {
 	//관리자 대시보드
 	@RequestMapping("adminDashboard")
 	public String adminDashboard(HttpServletRequest request,Model model) {
-		HttpSession session = request.getSession();
+		model.addAttribute("request",request);
+		session = request.getSession();
 		if((Integer)session.getAttribute("upoint") < 5) {
 			return "errorpage";
 		}
+		eAdminDashboardTableCommand.execute_session(sqlSession, model, session, request);
 		
 		return "adminDashboard";
 	}

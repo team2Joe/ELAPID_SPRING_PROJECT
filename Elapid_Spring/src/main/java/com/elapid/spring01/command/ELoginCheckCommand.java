@@ -28,10 +28,7 @@ public class ELoginCheckCommand implements ECommand {
 		UserDao dao = sqlSession.getMapper(UserDao.class);
 		String uid = "";
 		
-
 		UserLogDao lDao = new UserLogDao();
-		
-		
 		
 		uid = request.getParameter("uid");
 		UserDto dto = dao.profileView(uid);

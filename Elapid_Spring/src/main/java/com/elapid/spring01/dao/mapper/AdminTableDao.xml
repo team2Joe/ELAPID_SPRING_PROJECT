@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.elapid.spring01.dao.AdminTableDao"> <!-- 자바 파일이름 써야됨  -->
+	<select id="customerTrendTable" resultType="com.elapid.spring01.dto.customerTrendTableDto">
+ 	 	SELECT B.BB AS date ,B.PV AS PAGEVIEW,C.UV AS UNIQUEVISITOR, A.ORDERCOUNT,D.SIGNUPCOUNT
+		FROM 
+		(SELECT DATE_FORMAT(UO_DATE,#{param3}) AS AA, COUNT(UOD_ID) AS ORDERCOUNT,MAX(P_ID) AS P_ID
+		FROM USER_ORDER_DETAIL UOD,USER_ORDER UO 
+		WHERE UO.UO_ID = UOD.UO_ID 
+		AND DATE(UO_DATE) &gt;= STR_TO_DATE(#{param1}, '%Y-%m-%d') 
+		AND DATE(UO_DATE) &lt;= STR_TO_DATE(#{param2}, '%Y-%m-%d')
+		GROUP BY AA) AS A
+		RIGHT JOIN
+		(SELECT DATE_FORMAT(DATE, #{param3}) AS BB, COUNT(VISITOR_ID) AS PV
+		FROM VISITOR
+		WHERE DATE(DATE) &gt;= STR_TO_DATE(#{param1}, '%Y-%m-%d') 
+		AND DATE(DATE) &lt;= STR_TO_DATE(#{param2}, '%Y-%m-%d')
+		GROUP BY BB) AS B
+		ON B.BB = A.AA
+		LEFT JOIN
+		(SELECT DATE_FORMAT(DATE,#{param3}) AS CC, COUNT(VISITOR_ID) AS UV
+		FROM VISITOR 
+		WHERE FUNNEL NOT IN ('REVISIT')
+		AND DATE(DATE) &gt;= STR_TO_DATE(#{param1}, '%Y-%m-%d') 
+		AND DATE(DATE) &lt;= STR_TO_DATE(#{param2}, '%Y-%m-%d')
+		GROUP BY CC) AS C
+		ON B.BB =C.CC
+		LEFT JOIN
+		(SELECT DATE_FORMAT(U_REGISTERDATE,#{param3}) AS DD, COUNT(U_ID) AS SIGNUPCOUNT 
+		FROM USER
+		WHERE 
+		DATE(U_REGISTERDATE) &gt;= STR_TO_DATE(#{param1},'%Y-%m-%d') 
+		AND DATE(U_REGISTERDATE) &lt;= STR_TO_DATE(#{param2}, '%Y-%m-%d')
+		GROUP BY DD) AS D
+		ON B.BB = D.DD  
+		ORDER BY date DESC
+	</select>
+	<select id="test" resultType="String">
+		
+		SELECT A.AA
+		FROM
+		(SELECT DATE_FORMAT(UO_DATE,'%Y-%m-%d') AS AA, COUNT(UOD_ID) AS ORDERCOUNT,MAX(P_ID) AS P_ID
+		FROM USER_ORDER_DETAIL UOD,USER_ORDER UO 
+		WHERE UO.UO_ID = UOD.UO_ID 
+		AND DATE(UO_DATE) &gt;= STR_TO_DATE(#{param1},#{param3}) 
+ 		AND DATE(UO_DATE) &lt;= STR_TO_DATE(#{param2}, #{param3}) 
+		GROUP BY AA) AS A
+		LIMIT 1
+		
+	</select>
+</mapper>

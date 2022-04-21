@@ -9,35 +9,58 @@
 
 <div>
 	<div class = "row" style="">
-		<div style="text-align:right;">
-			<form action="adminDashboard" method="get">
+
+		<div class="col-12" style="text-align:right; padding: 100px 100px 100px 100px">
+			<form action="adminDashboard" method="post">
 				시작일 : <input type="date" name="startdate">
 				종료일 : <input type="date" name="enddate">
-				<input type="submit" value="날짜 입력">
+				시간 간격 :
+				<select name="period" >
+					<option value = "%Y"> 12개월
+					<option value = "3 month"> 3개월
+					<option value = "%Y-%m"> 1개월
+					<option value = "7 day"> 7일
+					<option value = "%Y-%m-%d" selected="selected"> 1일
+				</select>
+				<input type="submit" value="입력">
 			</form>	
 		</div>
-		<table>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-			</tr>
-			<tr>
-			</tr>		
+	</div>
+	<div class = "row" style="padding: 100px 100px 100px 100px;">
+		<div class="col-12" style="text-align:center;">
+			<table class="col-10">
+				<tr>
+					<td> 날짜 </td>
+					<td> 방문자수	</td>
+					<td> 순방문자수 </td>
+					<td> 회원가입수 </td>
+					<td> 방문자대비 가입수 </td>
+					<td> 구매전환율 </td>
+					<td> 최다 구매 상품	</td>
+					<td> 최다 구매 카테고리</td>
+					<td> 최다 유입경로</td>
+				</tr>
+				<c:forEach items="${cttDtos}" var="dto" >
+					<tr>
+						<td>${dto.date }</td>
+						<td>${dto.pageview}</td>
+						<td>${dto.uniquevisitor}</td>
+						<td>${dto.signupcount}</td>
+						<td>${dto.signupcount/dto.pageview * 100}%</td>
+						<td>${dto.ordercount/dto.pageview * 100}%</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</c:forEach>
+				<tr>
+				</tr>
+				<tr>
+				</tr>		
+			</table>
+		</div>
 		
 		
-		</table>
 	</div>
 </div>
 

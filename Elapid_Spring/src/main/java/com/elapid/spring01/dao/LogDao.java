@@ -7,4 +7,6 @@ public interface LogDao {
 	public void visitorCount(String ip,String funnel);
 	public DatesDto returnLatestDateTime(String ip);
 	
+	
+	
 }
