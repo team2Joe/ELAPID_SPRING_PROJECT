@@ -54,11 +54,14 @@
 	 <beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
 	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> -->
 
-
+	<!--uyoung.Cart  -->
 	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" ></beans:bean>
 	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" ></beans:bean>
 	<beans:bean name="cartDelete" class="com.elapid.spring01.command.ECartDeleteCommand" ></beans:bean>
-
+	<!--uyoung.AdminQnA  -->
+	<beans:bean name="aQnAList" class="com.elapid.spring01.command.EAdminQnAListCommand"></beans:bean>
+	<beans:bean name="aQnAContent" class="com.elapid.spring01.command.EAdminQnAContentCommand"></beans:bean>
+	<beans:bean name="aQnAWrite" class="com.elapid.spring01.command.EAdminQnAWriteCommand"></beans:bean>
 	
 	
 	
