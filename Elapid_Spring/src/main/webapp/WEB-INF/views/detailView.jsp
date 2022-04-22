@@ -19,7 +19,7 @@
 					<%-- 상품 상세내용 col --%>
 					<td align="center">
 						<h2> ${detailView.p_name }</h2>
-						<h4>가격 : ${detailView.p_price }</h4><br>
+						<h4>가격 : <fmt:formatNumber type="number" value="${detailView.p_price }"/></h4><br>
 								
 						<br>
 						<br>
