@@ -122,7 +122,7 @@ request.setCharacterEncoding("utf-8");
 	      <ul class="navbar-nav">
 	        <li class="nav-item dropdown">
 	          <a class="nav-link" onclick="location.href='registerProductForm'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	          	상품등록
+	          	프레스
 	          </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 	            <li><a class="dropdown-item" href="#">Action</a></li>

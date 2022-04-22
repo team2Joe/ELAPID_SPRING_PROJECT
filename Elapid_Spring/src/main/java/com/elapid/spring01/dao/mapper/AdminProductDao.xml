@@ -32,7 +32,6 @@
 		, #{param3}, #{param4}
 		, #{param5}, #{param6}
 	)
-	
 </insert>
 	
 </mapper>

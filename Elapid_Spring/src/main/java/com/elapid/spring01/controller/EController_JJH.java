@@ -55,7 +55,7 @@ public class EController_JJH {
 		this.registerProduct = registerProduct;
 	}
 	
-	//캐리어 전체 리스트 
+	// 캐리어 전체 리스트 
 	@RequestMapping("luggageList")
 	public String luggageList(HttpServletRequest request, Model model) {
 		
@@ -65,16 +65,7 @@ public class EController_JJH {
 		return "luggageList";
 	}
 	
-	@RequestMapping("/middleList")
-	public String middleList(HttpServletRequest request, Model model) {
-		
-		model.addAttribute("request", request);
-		middleList.execute(sqlSession, model);
-		
-		return "mainList";
-	}
-	
-	// 캐리어 전용 필터
+	// 캐리어 필터링 검색
 	@RequestMapping("luggageFilterList")
 	public String luggageFilterList(HttpServletRequest request, Model model) {
 		
@@ -84,7 +75,7 @@ public class EController_JJH {
 		return "luggageFilterList";
 	}
 	
-	//제품 상세 페이지
+	// 제품 상세 페이지
 	@RequestMapping("detailView")
 	public String detailView(HttpServletRequest request, Model model) {
 		
@@ -94,7 +85,7 @@ public class EController_JJH {
 		return "detailView";
 	}
 	
-	//검색 목록 출력
+	// 검색 목록 출력
 	@RequestMapping("search")
 	public String searchList(HttpServletRequest request, Model model) {
 		
@@ -111,6 +102,16 @@ public class EController_JJH {
 		interestedProductList.execute(sqlSession, model);
 		
 		return "index";
+	}
+	
+	
+	@RequestMapping("/middleList")
+	public String middleList(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		middleList.execute(sqlSession, model);
+		
+		return "mainList";
 	}
 	
 	// 상품 등록 페이지
