@@ -1,15 +1,23 @@
 package com.elapid.spring01.controller;
 
+import java.net.http.HttpHeaders;
+import java.util.Map;
+
+import javax.management.loading.PrivateClassLoader;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.elapid.spring01.command.ECommand;
+import com.elapid.spring01.dao.ProductImageDao;
 import com.elapid.spring01.util.Constant;
 
 @Controller
@@ -17,6 +25,8 @@ public class EController_JJH {
 	
 	// Spring JDBC 방식
 	private JdbcTemplate template;
+	
+	private ProductImageDao dao;
 	
 	@Autowired
 	public void setTemplate(JdbcTemplate template) {
@@ -119,11 +129,25 @@ public class EController_JJH {
 	@RequestMapping("registerProduct")
 	public String registerProduct(HttpServletRequest request, Model model) {
 		
+		
+		
 		model.addAttribute("request", request);
 		registerProduct.execute(sqlSession, model);	
 		
 		return "index";
 	}
+	
+	// blob 이미지 가져오기
+	@RequestMapping(value="/getByteImage")
+	public ResponseEntity<byte[]> getByteImage() {
+		
+	    Map<String, Object> map = dao.getByteImage();
+	       byte[] imageContent = (byte[]) map.get("img_thum");
+	       final org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
+	       headers.setContentType(MediaType.IMAGE_PNG);
+	       return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
+	}
+
 	
 	// 상품 수정 페이지
 	@RequestMapping("modifyProductForm")

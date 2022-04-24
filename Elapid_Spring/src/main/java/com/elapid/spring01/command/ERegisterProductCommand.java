@@ -1,7 +1,5 @@
 package com.elapid.spring01.command;
 
-import java.io.IOException;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +11,6 @@ import org.springframework.ui.Model;
 
 import com.elapid.spring01.dao.AdminProductDao;
 import com.elapid.spring01.dto.RegistProductDto;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class ERegisterProductCommand implements ECommand {
 
@@ -24,54 +20,52 @@ public class ERegisterProductCommand implements ECommand {
 		RegistProductDto dto = new RegistProductDto();
 		
 		AdminProductDao dao = sqlSession.getMapper(AdminProductDao.class);
-		
+
 		Map<String, Object> map = model.asMap();
 		
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		HttpSession session = request.getSession();
 		
-		String uploadPath=request.getRealPath("/resources/elapid_img");;
-		MultipartRequest mr =null; 
-				
-		try {
-			mr = new MultipartRequest(request, uploadPath,1024*1024*10,"UTF-8", new DefaultFileRenamePolicy());
-			
-		} catch (IOException e1) {
-
-			e1.printStackTrace();
-		}
+//		String uploadPath=request.getRealPath("/resources/elapid_img");;
+//		MultipartRequest mr =null; 
+//				
+//		try {
+//			mr = new MultipartRequest(request, uploadPath,1024*1024*10,"UTF-8", new DefaultFileRenamePolicy());
+//			
+//		} catch (IOException e1) {
+//
+//			e1.printStackTrace();
+//		}
 
 		String u_id = (String)session.getAttribute("uid");
 		// product table
-		String p_name = mr.getParameter("p_name");
-		int p_stock = Integer.parseInt(mr.getParameter("p_stock"));
-		int p_price = Integer.parseInt(mr.getParameter("p_price"));
-		int p_size = Integer.parseInt(mr.getParameter("p_size"));
-		String p_mainf = mr.getParameter("p_mainf");
+		String p_name = request.getParameter("p_name");
+		int p_stock = Integer.parseInt(request.getParameter("p_stock"));
+		int p_price = Integer.parseInt(request.getParameter("p_price"));
+		int p_size = Integer.parseInt(request.getParameter("p_size"));
+		String p_mainf = request.getParameter("p_mainf");
 		
 		//product_spec
-		String ps_color = mr.getParameter("ps_color");
-		String ps_material = mr.getParameter("ps_material");
-		int ps_size = Integer.parseInt(mr.getParameter("ps_size"));
-		int ps_height = Integer.parseInt(mr.getParameter("ps_height"));
-		int ps_depth = Integer.parseInt(mr.getParameter("ps_depth"));
-		int ps_width = Integer.parseInt(mr.getParameter("ps_width"));
-		int ps_volume = Integer.parseInt(mr.getParameter("ps_volume"));
-		int ps_weight = Integer.parseInt(mr.getParameter("ps_weight"));
-		
-		//product_detail
+		String ps_color = request.getParameter("ps_color");
+		String ps_material = request.getParameter("ps_material");
+		int ps_size = Integer.parseInt(request.getParameter("ps_size"));
+		int ps_height = Integer.parseInt(request.getParameter("ps_height"));
+		int ps_depth = Integer.parseInt(request.getParameter("ps_depth"));
+		int ps_width = Integer.parseInt(request.getParameter("ps_width"));
+		int ps_volume = Integer.parseInt(request.getParameter("ps_volume"));
+		int ps_weight = Integer.parseInt(request.getParameter("ps_weight"));
 		
 		// category
-		String ctg_main = mr.getParameter("ctg_main");
-		String ctg_middle = mr.getParameter("ctg_middle");
-		String ctg_sub = mr.getParameter("ctg_sub");
+		String ctg_main = request.getParameter("ctg_main");
+		String ctg_middle = request.getParameter("ctg_middle");
+		String ctg_sub = request.getParameter("ctg_sub");
 		
 		//category_detail
 		
 		//product_image
-		int size = 10*1024*1024;
-		   String img_thum="";
+//		int size = 10*1024*1024;
+//		   String img_thum="";
 		   String img_01="";
 		   String img_02="";
 		   String img_03="";
@@ -87,58 +81,58 @@ public class ERegisterProductCommand implements ECommand {
 //			FileInputStream inputStream = new FileInputStream(file);  	   
 		   
 		   // MultipartRequest
-		   try{
-		      MultipartRequest multi=new MultipartRequest(request,
-		                     uploadPath,
-		                     size, 
-		                     "utf-8",
-		            new DefaultFileRenamePolicy());
-
-		      Enumeration files=multi.getFileNames();
-		      
-		      String fileThum =(String)files.nextElement();
-		      img_thum = multi.getFilesystemName(fileThum);
-		      
-		      String file1 =(String)files.nextElement();
-		      img_01 = multi.getFilesystemName(file1);
-		      
-		      String file2 =(String)files.nextElement();
-		      img_02 = multi.getFilesystemName(file2);
-		      
-		      String file3 =(String)files.nextElement();
-		      img_03 = multi.getFilesystemName(file3);
-		      
-		      String file4 =(String)files.nextElement();
-		      img_04 = multi.getFilesystemName(file4);
-		      
-		      String file5 =(String)files.nextElement();
-		      img_05 = multi.getFilesystemName(file5);
-		      
-		      String file6 =(String)files.nextElement();
-		      img_06 = multi.getFilesystemName(file6);
-		      
-		   }catch(Exception e){
-		      e.printStackTrace();
-		   }		
-		   
+//		   try{
+//		      MultipartRequest multi=new MultipartRequest(request,
+//		                     uploadPath,
+//		                     size, 
+//		                     "utf-8",
+//		            new DefaultFileRenamePolicy());
+//
+//		      Enumeration files=multi.getFileNames();
+//		      
+//		      String fileThum =(String)files.nextElement();
+//		      img_thum = multi.getFilesystemName(fileThum);
+//		      
+//		      String file1 =(String)files.nextElement();
+//		      img_01 = multi.getFilesystemName(file1);
+//		      
+//		      String file2 =(String)files.nextElement();
+//		      img_02 = multi.getFilesystemName(file2);
+//		      
+//		      String file3 =(String)files.nextElement();
+//		      img_03 = multi.getFilesystemName(file3);
+//		      
+//		      String file4 =(String)files.nextElement();
+//		      img_04 = multi.getFilesystemName(file4);
+//		      
+//		      String file5 =(String)files.nextElement();
+//		      img_05 = multi.getFilesystemName(file5);
+//		      
+//		      String file6 =(String)files.nextElement();
+////		      img_06 = multi.getFilesystemName(file6);
+//		      
+//		   }catch(Exception e){
+//		      e.printStackTrace();
+//		   }		
+//		   
 		// 업로드 끝
 			
-//			//Blob
-//			   try {
-//			        Map<String, Object> imageMap = new HashMap<String, Object>();
-//			        imageMap.put("img_thum", dto.getImg_thum().getBinaryStream());
-//			        
-//			        
-//			    } catch (Exception e) {
-//			        e.printStackTrace();
-//			    }
+			//Blob 썸네일 이미지 가져오기
+	   Map<String, Object> img_thum = null;
+	   
+	   try {
+	        img_thum = new HashMap<String, Object>();
+	        img_thum.put("img_thum", dto.getImg_thum().getBytes());
+	       
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+	   
+	   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
+			   ps_size, ps_height, ps_depth, ps_width, ps_volume, ps_weight,
+			   ctg_main, ctg_middle, ctg_sub,
+			   img_thum, img_01, img_02, img_03, img_04, img_05, img_06);
 		   
-			   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
-					   ps_size, ps_height, ps_depth, ps_width, ps_volume, ps_weight,
-					   ctg_main, ctg_middle, ctg_sub,
-					   img_thum, img_01, img_02, img_03, img_04, img_05, img_06);
-			   
-
 		// 상품ID값 받아오기
 		   int selectPidNum = dao.selectPidNum().getP_id();
 		   

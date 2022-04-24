@@ -4,6 +4,10 @@
     
 <mapper namespace="com.elapid.spring01.dao.AdminProductDao">
 
+<!-- <resultMap type="hashMap" id="img"> -->
+<!-- 	<result property="img_thum" column="img_thum" jdbcType="BLOB" javaType="byte[]"/> -->
+<!-- </resultMap> -->
+
 <!-- 프로시저로 호출 -->
 <insert id="registerProduct">
 	call insertQueries(

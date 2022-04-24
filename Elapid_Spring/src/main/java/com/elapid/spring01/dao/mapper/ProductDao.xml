@@ -27,7 +27,7 @@
 	</select>
 	
 	<!-- 캐리어 리스트 쿼리 -->
-	<select id="luggageListDao" resultType="com.elapid.spring01.dto.ProductListDto">
+	<select id="luggageListDao" resultType="com.elapid.spring01.dto.ProductListDto" >
 		SELECT * FROM PRODUCT_IMAGE I
 		JOIN IMAGE_DETAIL ID 
 		ON I.IMG_ID = ID.IMG_ID
@@ -43,6 +43,10 @@
 		ON S.PS_ID = PD.PS_ID
 		WHERE C.CTG_MAIN = 'LUGGAGE'
 		LIMIT #{param1}, #{param2};
+	</select>
+	
+	<select id="getByteImage" resultType="java.util.Map">
+		select img_thum from product_image;
 	</select>
 	
 	<!-- 캐리어 필터링 페이지 -->

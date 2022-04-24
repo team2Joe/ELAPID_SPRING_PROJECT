@@ -12,7 +12,7 @@ public interface AdminProductDao {
 			String p_mainf, String ps_color, String ps_material, int ps_size, int ps_height, 
 			int ps_depth, int ps_width, int ps_volume, int ps_weight,
 			 String ctg_main, String ctg_middle, String ctg_sub,
-			String img_thum, String img_01, String img_02, String img_03,
+			Map<String, Object> img_thum, String img_01, String img_02, String img_03,
 			String img_04, String img_05, String img_06);
 	
 	//상품id number 반환
