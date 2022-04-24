@@ -1,8 +1,5 @@
 package com.elapid.spring01.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,9 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.elapid.spring01.command.ECommand;
-import com.elapid.spring01.dao.AdminProductDao;
-import com.elapid.spring01.dao.ProductDao;
-import com.elapid.spring01.dto.PidDto;
 import com.elapid.spring01.util.Constant;
 
 @Controller

@@ -36,6 +36,7 @@ public class ERegisterProductCommand implements ECommand {
 				
 		try {
 			mr = new MultipartRequest(request, uploadPath,1024*1024*10,"UTF-8", new DefaultFileRenamePolicy());
+			
 		} catch (IOException e1) {
 
 			e1.printStackTrace();
@@ -131,6 +132,7 @@ public class ERegisterProductCommand implements ECommand {
 //			    } catch (Exception e) {
 //			        e.printStackTrace();
 //			    }
+		   
 			   dao.registerProduct(p_name, p_stock, p_price, p_size, p_mainf, ps_color, ps_material,
 					   ps_size, ps_height, ps_depth, ps_width, ps_volume, ps_weight,
 					   ctg_main, ctg_middle, ctg_sub,

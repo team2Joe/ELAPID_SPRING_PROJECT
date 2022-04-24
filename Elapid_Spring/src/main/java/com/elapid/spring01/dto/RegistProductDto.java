@@ -20,7 +20,7 @@ public class RegistProductDto {
 	private String ctg_main;
 	private String ctg_middle;
 	private String ctg_sub;
-	private String img_thum;
+	private byte[] img_thum;
 	private String img_01;
 	private String img_02;
 	private String img_03;
@@ -33,7 +33,7 @@ public class RegistProductDto {
 
 	public RegistProductDto(String p_name, int p_stock, int p_price, int p_size, String p_mainf, String ps_color, String ps_material,
 			String ps_size, String ps_height, String ps_depth, String ps_width, String ps_volume, String ps_weight,
-			 String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String img_01,
+			 String ctg_main, String ctg_middle, String ctg_sub, byte[] img_thum, String img_01,
 			String img_02, String img_03, String img_04, String img_05, String img_06) {
 		super();
 		this.p_name = p_name;
@@ -189,11 +189,11 @@ public class RegistProductDto {
 		this.ctg_sub = ctg_sub;
 	}
 
-	public String getImg_thum() {
+	public byte[] getImg_thum() {
 		return img_thum;
 	}
 
-	public void setImg_thum(String img_thum) {
+	public void setImg_thum(byte[] img_thum) {
 		this.img_thum = img_thum;
 	}
 
