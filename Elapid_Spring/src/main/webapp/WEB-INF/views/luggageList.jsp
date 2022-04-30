@@ -57,16 +57,22 @@ padding : 0 0 200px 200px;
 			<%@ include file="layout/productList.jsp" %>
 
 		<br>
+
 		<div align ="center">
 				<tr>
 					<td>
-						<!-- 페이징 처리 -->
+						<%--
+							페이징 처리 
+							초기에 1~3 페이지까지 화면에 보이게하고 그 이후는 next버튼
+							next버튼 클릭시 4~6 페이지 보이게 하기
+						--%>
 						<c:forEach var="i" begin="1" end="${count }">
 							<button onclick="location.href='luggageList?page=${i}'">${i}</button>
 						</c:forEach>				
 					<td>
 				</tr>
 		</div>		
+		
 <%@ include file="layout/footer.jsp"%>	
 		
 		
