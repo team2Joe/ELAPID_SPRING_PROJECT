@@ -23,3 +23,5 @@
 		DELETE FROM USER WHERE U_ID = #{param1}
 	</delete>
 </mapper>
+
+

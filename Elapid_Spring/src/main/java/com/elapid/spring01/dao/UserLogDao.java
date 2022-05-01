@@ -15,7 +15,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import com.elapid.spring01.util.Constant;
 
 public class UserLogDao {
-
 //	DataSource dataSource = null;
 	JdbcTemplate template;
 	
@@ -24,7 +23,6 @@ public class UserLogDao {
 
 		this.template = Constant.template;
 	}
-	
 	public void userLoginLogAdd(final String uid) {
 			
 		this.template.update(new PreparedStatementCreator() {
@@ -39,7 +37,5 @@ public class UserLogDao {
 				return ps;
 			}
 		});
-		
 	}
-	
 }

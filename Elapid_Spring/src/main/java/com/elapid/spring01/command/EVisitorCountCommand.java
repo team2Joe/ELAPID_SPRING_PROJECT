@@ -21,37 +21,25 @@ public class EVisitorCountCommand implements ECommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		// 유입 경로 없을 때 예외처리, 디폴트로 "homepage"
 		String funnel = request.getParameter("funnel") != null ? request.getParameter("funnel"):"homepage";
 		
 		LogDao dao = sqlSession.getMapper(LogDao.class);
 		
+		
+		// ip 받아오기
 		request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		String ip = request.getHeader("X-FORWARDED-FOR");
 		if (ip == null)
 			ip = request.getRemoteAddr();
 		
+		// 방문자수 카운트(유입경로, ip 체크 후 순방문자수 카운트)
 		dao.visitorCount(ip, funnel);
-		
-//		if(dao.returnLatestDateTime(ip) != null) {
-//		
-//			DatesDto datesDto = dao.returnLatestDateTime(ip);
-//			Long date = Long.parseLong(datesDto.getDate());
-//			Long nowDate = Long.parseLong(datesDto.getNowdate());
-//			dao.visitorCount(ip, nowDate-date>=6000 ? funnel : "revisit" );
-//		}else {
-//			dao.visitorCount(ip, funnel);
-//		}
-//		
-		System.out.println("*************"+ip);
-		
-		
 	}
 
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
-		
-		
-		
+	
 	}
 
 }

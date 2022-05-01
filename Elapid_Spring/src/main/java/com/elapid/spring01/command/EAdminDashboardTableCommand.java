@@ -32,22 +32,7 @@ public class EAdminDashboardTableCommand implements ECommand {
 
 		
 		AdminTableDao aDao = sqlSession.getMapper(AdminTableDao.class);
-		System.out.println("********"+aDao.customerTrendTable(startdate, enddate, period).size());
-		System.out.println("***&&&&&&&&&"+aDao.test(startdate, enddate, period));
-		
-		
-		
-		
 		request.setAttribute("cttDtos", aDao.customerTrendTable(startdate, enddate, period) != null ? aDao.customerTrendTable(startdate, enddate, period):null);
-//		
-//		Calendar cal = Calendar.getInstance();
-//		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyy-mm-dd" );
-//		sdf.applyPattern("yyyy-MM-dd");
-//
-//		System.out.println(cal.getTime());
-//		System.out.println(sdf.format(cal.getTime()));
-		
-		//LogDao lDao = sqlSession.getMapper(LogDao.class);
 		
 	}
 

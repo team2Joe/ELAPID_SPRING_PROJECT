@@ -1,6 +1,5 @@
 package com.elapid.spring01.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,15 +9,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-
 public class CartOrderDao {
+	//field
 	DataSource dataSource = null;
 
-
+	//constructor
 	public CartOrderDao() {	
 		try {
-			
-			
 			Context context = new InitialContext();
 			
 			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/elapid");
@@ -28,7 +25,7 @@ public class CartOrderDao {
 		}
 	}
 	
-	
+	//회원가입 시 회원의 장바구니를 1개 생성 
 	public void CartAdd(String uid) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -51,11 +48,9 @@ public class CartOrderDao {
 				e.printStackTrace();
 			}
 		}
-			
-		
-		
 	}
 	
+	// cdid들로 상품번호들을 검색
 	public ArrayList<Integer> searchBycdids(ArrayList<Integer> cd_ids) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -93,6 +88,8 @@ public class CartOrderDao {
 		
 		return p_ids;
 	}
+	
+	//cdid들로 장바구니번호 검색 
 	public int searchBycdids(String uid) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

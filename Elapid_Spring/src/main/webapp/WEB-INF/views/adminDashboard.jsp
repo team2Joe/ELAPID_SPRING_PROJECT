@@ -17,9 +17,7 @@
 				시간 간격 :
 				<select name="period" >
 					<option value = "%Y"> 12개월
-					<option value = "3 month"> 3개월
 					<option value = "%Y-%m"> 1개월
-					<option value = "7 day"> 7일
 					<option value = "%Y-%m-%d" selected="selected"> 1일
 				</select>
 				<input type="submit" value="입력">
@@ -35,7 +33,8 @@
 					<td> 순방문자수 </td>
 					<td> 회원가입수 </td>
 					<td> 방문자대비 가입수 </td>
-					<td> 구매전환율 </td>
+					<td> 구매전환율 (방문자수대비)</td>
+					<td> 구매전환율 (순방문자수대비)</td>
 					<td> 최다 구매 상품	</td>
 					<td> 최다 구매 카테고리</td>
 					<td> 최다 유입경로</td>
@@ -48,9 +47,10 @@
 						<td>${dto.signupcount}</td>
 						<td>${dto.signupcount/dto.pageview * 100}%</td>
 						<td>${dto.ordercount/dto.pageview * 100}%</td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>${dto.ordercount/dto.uniquevisitor * 100}%</td>
+						<td>${dto.p_name}</td>
+						<td>${dto.ctg_main } >${dto.ctg_middle } > ${dto.ctg_sub }</td>
+						<td>${dto.funnel }</td>
 					</tr>
 				</c:forEach>
 				<tr>

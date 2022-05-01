@@ -12,3 +12,9 @@ public interface UserDao {
 	public void profileDelete(String uid);
 	
 }
+
+
+
+
+
+
