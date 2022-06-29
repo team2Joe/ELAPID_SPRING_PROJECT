@@ -1,4 +1,4 @@
-
+<%-- 
 		<%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="com.elapid.spring01.dto.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
@@ -36,7 +36,7 @@
 						</div>
 				      </div>
 				      <div class="card-footer">
-				 	<%-- 아이디값 null시 비회원 장바구니로 들어가기 --%>
+				 	아이디값 null시 비회원 장바구니로 들어가기
 				      	<button class="btn btn-dark" onclick = "location.href='addCart.do?p_id=${dto.p_id}'" >장바구니 담기</button> 
 				      </div>
 				    </div>
@@ -68,4 +68,4 @@
 			</tr>
 		</div>	
 			
-		<%@ include file="layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	 --%>

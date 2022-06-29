@@ -23,7 +23,7 @@ public class ProductListDto {
 	private String ctg_main;
 	private String ctg_middle;
 	private String ctg_sub;
-	private MultipartFile img_thum;
+	private String img_thum;
 	private String ps_color;
 	private String p_rank;
 	
@@ -37,7 +37,7 @@ public class ProductListDto {
 	// p_rank 제외한 생성자
 	public ProductListDto(int p_id, String p_name, int p_stock, int p_price, int p_discountprice, int p_size,
 			String p_mainf, String p_colorimg, String p_colorname, Timestamp p_date, String p_desc, String p_clickcount,
-			String ctg_id, String ctg_main, String ctg_middle, String ctg_sub, MultipartFile img_thum, String ps_color) {
+			String ctg_id, String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String ps_color) {
 		super();
 		this.p_id = p_id;
 		this.p_name = p_name;
@@ -65,7 +65,7 @@ public class ProductListDto {
 
 	public ProductListDto(int p_id, String p_name, int p_stock, int p_price, int p_discountprice, int p_size,
 			String p_mainf, String p_colorimg, String p_colorname, Timestamp p_date, String p_desc, String p_clickcount,
-			String ctg_id, String ctg_main, String ctg_middle, String ctg_sub, MultipartFile img_thum, String ps_color,
+			String ctg_id, String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String ps_color,
 			String p_rank) {
 		super();
 		this.p_id = p_id;
@@ -253,12 +253,12 @@ public class ProductListDto {
 	}
 
 
-	public MultipartFile getImg_thum() {
+	public String getImg_thum() {
 		return img_thum;
 	}
 
 
-	public void setImg_thum(MultipartFile img_thum) {
+	public void setImg_thum(String img_thum) {
 		this.img_thum = img_thum;
 	}
 

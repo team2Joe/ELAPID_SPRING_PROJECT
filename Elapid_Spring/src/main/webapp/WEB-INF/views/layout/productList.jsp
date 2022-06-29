@@ -6,7 +6,7 @@
 				 <div class="col">
 				    <div class="card h-100" align="center">
 			    	  <a href="detailView?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
-				      <img src="/getByteImage" alt="..." align="center">
+				      <img src="${dto.img_thum }" alt="..." align="center">
 				      <div class="card-body">
 				        <h5 class="card-title">${dto.p_name }</h5>
 				      </a>						<!-- 가격 천단위로 컴마처리 -->

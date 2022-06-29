@@ -1,11 +1,11 @@
-<%@page import="com.elapid.spring01.dao.ProductDao"%>
+<%-- <%@page import="com.elapid.spring01.dao.ProductDao"%>
 <%@page import="com.elapid.spring01.dto.ProductListDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 
-    	<%--상품 카드 부분 --%>
+    	상품 카드 부분
 			<%@ include file="layout/productList.jsp" %>
 		
 		<br>		
@@ -25,4 +25,4 @@
 				<td>
 			</tr>
 		</div>	
-		<%@ include file="layout/footer.jsp"%>	
+		<%@ include file="layout/footer.jsp"%>	 --%>
