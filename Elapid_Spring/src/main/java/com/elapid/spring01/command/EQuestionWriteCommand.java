@@ -29,7 +29,7 @@ public class EQuestionWriteCommand implements ECommand {
 		request = (HttpServletRequest) map.get("request");
 		
 		
-		String uploadPath=request.getRealPath("/resources/upload");;
+		String uploadPath=request.getRealPath("upload");;
 		MultipartRequest mr =null; 
 				
 		try {
@@ -45,7 +45,7 @@ public class EQuestionWriteCommand implements ECommand {
 		System.out.println(qc_name + "****************");
 		String pq_title = mr.getParameter("pq_title");
 		String pq_content= mr.getParameter("pq_content");
-		String u_id = (String) session.getAttribute("uid");
+		String uid = (String) session.getAttribute("uid");
 		//이미지파일 업로드 
 		
 		
@@ -74,7 +74,7 @@ public class EQuestionWriteCommand implements ECommand {
 	
 		QnaDao dao = sqlSession.getMapper(QnaDao.class);
 		//model.addAttribute("questionWrite", dao.writeDao());
-		dao.writeDao(qc_name, pq_title, pq_content, u_id);
+		dao.writeDao(qc_name, size, pq_title, pq_content, uid);
 		
 		
 	}

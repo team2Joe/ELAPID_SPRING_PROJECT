@@ -58,7 +58,7 @@ padding : 0 0 200px 200px;
 				 <div class="col">
 				    <div class="card h-100" align="center">
 			    	  <a href="detailView.do?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
-				      <img src="resources/${dto.img_thum }" alt="..." align="center">
+				      <img src="${dto.img_thum }" alt="..." align="center">
 				      <div class="card-body">
 				        <h5 class="card-title">${dto.p_name }</h5>
 				      </a>

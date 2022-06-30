@@ -15,6 +15,7 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources location="/elapid_img.backpack/" mapping="/img/**"/>
+	<resources location="/elapid_img.backpack/" mapping="/img/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -54,14 +55,10 @@
 	 <beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
 	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> -->
 
-	<!--uyoung.Cart  -->
+
 	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" ></beans:bean>
 	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" ></beans:bean>
-	<beans:bean name="cartDelete" class="com.elapid.spring01.command.ECartDeleteCommand" ></beans:bean>
-	<!--uyoung.AdminQnA  -->
-	<beans:bean name="aQnAList" class="com.elapid.spring01.command.EAdminQnAListCommand"></beans:bean>
-	<beans:bean name="aQnAContent" class="com.elapid.spring01.command.EAdminQnAContentCommand"></beans:bean>
-	<beans:bean name="aQnAWrite" class="com.elapid.spring01.command.EAdminQnAWriteCommand"></beans:bean>
+
 	
 	
 	

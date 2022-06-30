@@ -1,8 +1,6 @@
 package com.elapid.spring01.command;
 
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,7 +11,6 @@ import org.springframework.ui.Model;
 import com.elapid.spring01.dao.QnaDao;
 import com.elapid.spring01.dto.ProductQuestionDto;
 
-
 public class EQuestionContentCommand implements ECommand {
 
 	@Override
@@ -21,18 +18,18 @@ public class EQuestionContentCommand implements ECommand {
 		// TODO Auto-generated method stub
 		
 		
+		
 		session = request.getSession();
-		
 		int pq_id =Integer.parseInt(request.getParameter("pq_id"));
-	
-//		String qc_name =request.getParameter("qc_name");
-//		String u_id = (String) session.getAttribute("uid");
-//		String pq_title = request.getParameter("pq_title");
-//		String pq_content= request.getParameter("pq_content");
-//		
-		QnaDao dao = sqlSession.getMapper(QnaDao.class);
-		model.addAttribute("questionContentView", dao.contentViewDao(pq_id));
 		
+		String qc_name =request.getParameter("qc_name");
+		String u_id = (String) session.getAttribute("uid");
+		String pq_title = request.getParameter("pq_title");
+		String pq_content= request.getParameter("pq_content");
+		
+		
+		QnaDao dao = sqlSession.getMapper(QnaDao.class);
+		dao.modifyDao(qc_name, pq_id, pq_title, pq_content, u_id);
 
 	}
 	@Override

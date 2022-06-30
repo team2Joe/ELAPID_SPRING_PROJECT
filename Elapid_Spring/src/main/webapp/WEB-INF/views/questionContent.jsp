@@ -27,36 +27,36 @@
 
   <div class="col-sm-5 my-1" id="wrapper">
     <label for="exampleFormControlSelect1"><h6>문의 유형 분류</h6> </label>
-    	<input type="hidden" name="pq_id" value = "${questionContentView.pq_id }">
+    	<input type="hidden" name="pq_id" value = "${dto.pq_id }">
     <select class="form-control" id="exampleFormControlSelect1" name="qc_name">
-      			<c:if test="${questionContentView.qc_name.equals('회원정보') }">
+      			<c:if test="${dto.qc_name.equals('회원정보') }">
 						<option selected>회원정보</option>
 					</c:if>
-					<c:if test="${!questionContentView.qc_name.equals('회원정보') }">
+					<c:if test="${!dto.qc_name.equals('회원정보') }">
 						<option>회원정보</option>
 					</c:if>
-					<c:if test="${questionContentView.qc_name.equals('주문/결제') }">
+					<c:if test="${dto.qc_name.equals('주문/결제') }">
 						<option selected>주문/결제</option>
 					</c:if>
-					<c:if test="${!questionContentView.qc_name.equals('주문/결제') }">
+					<c:if test="${!dto.qc_name.equals('주문/결제') }">
 						<option>주문/결제</option>
 					</c:if>
-					<c:if test="${questionContentView.qc_name.equals('취소/교환/반품') }">
+					<c:if test="${dto.qc_name.equals('취소/교환/반품') }">
 						<option selected>취소/교환/반품</option>
 					</c:if>
-					<c:if test="${!questionContentView.qc_name.equals('취소/교환/반품') }">
+					<c:if test="${!dto.qc_name.equals('취소/교환/반품') }">
 						<option>취소/교환/반품</option>
 					</c:if>
-					<c:if test="${questionContentView.qc_name.equals('AS') }">
+					<c:if test="${dto.qc_name.equals('AS') }">
 						<option selected>AS</option>
 					</c:if>
-					<c:if test="${!questionContentView.qc_name.equals('AS') }">
+					<c:if test="${!dto.qc_name.equals('AS') }">
 						<option>AS</option>
 					</c:if>
-					<c:if test="${questionContentView.qc_name.equals('기타') }">
+					<c:if test="${dto.qc_name.equals('기타') }">
 						<option selected>기타</option>
 					</c:if>
-					<c:if test="${!questionContentView.qc_name.equals('기타') }">
+					<c:if test="${!dto.qc_name.equals('기타') }">
 						<option>기타</option>
 					</c:if>
 					</select>
@@ -70,13 +70,13 @@
    <br>
  <div class="col-sm-5 my-1" id="wrapper">
     <label for="exampleFormControlInput1"><h6>문의 제목</h6></label>
-    <input type="text" class="form-control" name="pq_title" id="exampleFormControlInput1" value = "${questionContentView.pq_title }" >
+    <input type="text" class="form-control" name="pq_title" id="exampleFormControlInput1" value = "${dto.pq_title }" >
 	
   </div>
    <br>
     <div class="col-sm-5 my-1" id="wrapper">
     <label for="exampleFormControlTextarea1"><h6>문의 내용</h6></label>
-    <textarea class="form-control" name="pq_content" id="exampleFormControlTextarea1"   rows="10">${questionContentView.pq_content }</textarea>
+    <textarea class="form-control" name="pq_content" id="exampleFormControlTextarea1"   rows="10">${dto.pq_content }</textarea>
   </div>
   
 <br>

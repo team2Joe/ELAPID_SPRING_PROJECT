@@ -1,8 +1,8 @@
 
-<%@page import="com.elapid.spring01.dao.ProductDao"%>
-<%@page import="com.elapid.spring01.dto.ProductListDto"%>
+<%@page import="com.elapid.dao.ProductDao"%>
+<%@page import="com.elapid.dto.ProductListDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ include file="layout/header.jsp"%>
+<%@ include file="/layout/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -34,7 +34,7 @@
 				<td>
 			
 	<%
-			int count = (Integer)request.getAttribute("count");	
+			int count = (int)request.getAttribute("count");	
 	
 			for(int i=1; i<=count; i++){
 	%>			
@@ -45,4 +45,4 @@
 				<td>
 			</tr>
 		</div>	
-		<%@ include file="layout/footer.jsp"%>	
+		<%@ include file="/layout/footer.jsp"%>	

@@ -16,11 +16,11 @@ public class EQuestionListCommand implements ECommand {
 		// TODO Auto-generated method stub
 		
 		session = request.getSession();
-		String u_id = (String) session.getAttribute("uid");
+		String uid = (String) session.getAttribute("uid");
 		
 		QnaDao dao = sqlSession.getMapper(QnaDao.class);
-		model.addAttribute("questionList", dao.listDao(u_id));
-		System.out.println(dao.listDao(u_id));
+		model.addAttribute("questionList", dao.listDao());
+
 		
 	}
 	

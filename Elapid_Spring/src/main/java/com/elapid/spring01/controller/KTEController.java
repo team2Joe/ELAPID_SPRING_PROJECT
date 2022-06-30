@@ -233,7 +233,6 @@ public class KTEController {
 	//유저 주문내역 
 	@RequestMapping("userOrderHistory")
 	public String userOrderHistory(HttpServletRequest request,Model model) {
-		model.addAttribute("request",request);
 		command = new EUserOrderHistoryCommand();
 		command.execute_session(sqlSession, model, session, request);
 		

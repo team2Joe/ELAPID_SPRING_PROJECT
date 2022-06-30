@@ -1,4 +1,4 @@
-<%@page import="com.elapid.spring01.dto.RegisterDto"%> 
+<%@page import="com.elapid.spring01.dto.RegisterDto"%>
 <%@page import="com.elapid.spring01.dto.UserDto"%>
 <%@page import="com.elapid.spring01.dto.RegisterJoinDto"%>
 <%@page import="com.elapid.spring01.dto.ProductListDto"%>

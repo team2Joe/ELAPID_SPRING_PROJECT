@@ -10,10 +10,21 @@
 
 <html>
 <head>
+<style type="text/css">
+ /* link - 아직 클릭하지 않은 경우 red 색상 설정 */
+ a:link { color: black; text-decoration: none;}	
+ /* visited - 한번 클릭하거나 전에 클릭한적 있을 경우 #c71d44 설정 */
+ a:visited { color: black; text-decoration: none;}	
+ /* hover - 마우스를 해당 링크에 위치했을 경우 #006DD7 설정 */
+ a:hover { color: #006DD7; text-decoration: none;}
+</style>
 <meta charset="UTF-8">
 <title>cartForm</title>
 </head>
 <body>
+
+
+
 
 	<div style="padding: 30px 200px 20px 200px;">
 		<!-- 중앙! -->
@@ -21,12 +32,14 @@
 			<h3>주문하기</h3>
 		</div>
 	<%
+	
+
 		ArrayList<CartViewDto> dtos = (ArrayList<CartViewDto>)request.getAttribute("cart_View");
 			if ( dtos.size() != 0 ){
 	%>
 
 		<form action="userOderForm.do" id="cart">
-			<c:forEach items="${cart_View }" var="dtos">
+			<c:forEach items="${Cart_View }" var="dtos">
 					<div class="container">
 						<div class="row">
 							<div class="col-1" style="padding: 75px 0px 0px 0px;">
@@ -41,7 +54,7 @@
 							<div class="col-2" align="left">
 							<a href="detailView.do?p_id=${dtos.p_id }&ctg_middle=${dtos.ctg_middle}"> <img
 
-									src="resources/${dtos.img_thum }" width="100" height="150"></a>
+									src="${dtos.img_thum }" width="100" height="150"></a>
 							</div>
 							<!-- 상품 정보 -->
 							<div class="col-4" align="left">
@@ -52,7 +65,7 @@
 							<!-- 삭제,주문하기,가격 -->
 							<div class="col -2" align="right">
 								<p class="fs-5">
-									<a href="cartDelete?cd_id=${dtos.cd_id }">X</a>
+									<a href="cartDeleteProduct.do?cd_id=${dtos.cd_id }">X</a>
 								</p>
 								<br>
 								<br> <br>
@@ -64,6 +77,8 @@
 			</c:forEach>
 		</form>
 
+
+
 		<div align="right">
 			<h5>총 계</h5>
 			<h4>
@@ -72,6 +87,7 @@
 			</h4>
 		</div><!-- 중앙! -->
 	</div><!-- 2분할! -->
+	
 	<div class="d-grid gap-2 col-10" align="right">
 		<div>
 			<button onclick="selectedCartOrder()" class="btn btn-dark"

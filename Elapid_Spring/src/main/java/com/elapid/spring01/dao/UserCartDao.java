@@ -11,9 +11,6 @@ public interface UserCartDao {
 	
 	/*cartViewDao*/
 	public ArrayList<CartViewDto> CartViewDao(String u_id);
-	
-	/*cartDeleteDao*/
-	public void CartDeleteDao(int cd_id);
 		
 	
 }
