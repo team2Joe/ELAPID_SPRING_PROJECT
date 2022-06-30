@@ -6,21 +6,18 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.elapid.spring01.dao.ProductDao;
-
-
-public class EInterestedProductListCommand implements ECommand {
+public class EDeleteProductCommand implements ECommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		
-		ProductDao dao = sqlSession.getMapper(ProductDao.class);
-		
-		model.addAttribute("list", dao.interestedProductListDao());
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

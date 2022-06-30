@@ -1,27 +1,28 @@
 package com.elapid.spring01.dto;
 
 import java.sql.Blob;
-import java.sql.Timestamp;
 
-public class ProductDetailDto {
+import org.springframework.web.multipart.MultipartFile;
 
-	private int p_id;
+public class RegistProductDto {
+	
 	private String p_name;
 	private int p_stock;
 	private int p_price;
-	private int p_discountprice;
 	private int p_size;
 	private String p_mainf;
-	private String p_colorimg;
-	private String p_colorname;
-	private String p_desc;
-	private int p_clickcount;
-	private String ctg_id;
+	private String ps_color;
+	private String ps_material;
+	private String ps_size;
+	private String ps_height;
+	private String ps_depth;
+	private String ps_width;
+	private String ps_volume;
+	private String ps_weight;
 	private String ctg_main;
 	private String ctg_middle;
 	private String ctg_sub;
-	private String img_thum;
-	private String ps_color;
+	private MultipartFile img_thum;
 	private String img_01;
 	private String img_02;
 	private String img_03;
@@ -29,46 +30,37 @@ public class ProductDetailDto {
 	private String img_05;
 	private String img_06;
 	
-	public ProductDetailDto() {
-		// TODO Auto-generated constructor stub
+	public RegistProductDto() {
 	}
 
-	public ProductDetailDto(int p_id, String p_name, int p_stock, int p_price, int p_discountprice, int p_size,
-			String p_mainf, String p_colorimg, String p_colorname, String p_desc, int p_clickcount, String ctg_id,
-			String ctg_main, String ctg_middle, String ctg_sub, String img_thum, String ps_color, String img_01,
+	public RegistProductDto(String p_name, int p_stock, int p_price, int p_size, String p_mainf, String ps_color, String ps_material,
+			String ps_size, String ps_height, String ps_depth, String ps_width, String ps_volume, String ps_weight,
+			 String ctg_main, String ctg_middle, String ctg_sub, MultipartFile img_thum, String img_01,
 			String img_02, String img_03, String img_04, String img_05, String img_06) {
 		super();
-		this.p_id = p_id;
 		this.p_name = p_name;
 		this.p_stock = p_stock;
 		this.p_price = p_price;
-		this.p_discountprice = p_discountprice;
 		this.p_size = p_size;
 		this.p_mainf = p_mainf;
-		this.p_colorimg = p_colorimg;
-		this.p_colorname = p_colorname;
-		this.p_desc = p_desc;
-		this.p_clickcount = p_clickcount;
-		this.ctg_id = ctg_id;
+		this.ps_color = ps_color;
+		this.ps_material = ps_material;
+		this.ps_size = ps_size;
+		this.ps_height = ps_height;
+		this.ps_depth = ps_depth;
+		this.ps_width = ps_width;
+		this.ps_volume = ps_volume;
+		this.ps_weight = ps_weight;
 		this.ctg_main = ctg_main;
 		this.ctg_middle = ctg_middle;
 		this.ctg_sub = ctg_sub;
 		this.img_thum = img_thum;
-		this.ps_color = ps_color;
 		this.img_01 = img_01;
 		this.img_02 = img_02;
 		this.img_03 = img_03;
 		this.img_04 = img_04;
 		this.img_05 = img_05;
 		this.img_06 = img_06;
-	}
-
-	public int getP_id() {
-		return p_id;
-	}
-
-	public void setP_id(int p_id) {
-		this.p_id = p_id;
 	}
 
 	public String getP_name() {
@@ -95,14 +87,6 @@ public class ProductDetailDto {
 		this.p_price = p_price;
 	}
 
-	public int getP_discountprice() {
-		return p_discountprice;
-	}
-
-	public void setP_discountprice(int p_discountprice) {
-		this.p_discountprice = p_discountprice;
-	}
-
 	public int getP_size() {
 		return p_size;
 	}
@@ -111,52 +95,76 @@ public class ProductDetailDto {
 		this.p_size = p_size;
 	}
 
+	public String getPs_color() {
+		return ps_color;
+	}
+
+	public void setPs_color(String ps_color) {
+		this.ps_color = ps_color;
+	}
+
+	public String getPs_material() {
+		return ps_material;
+	}
+
+	public void setPs_material(String ps_material) {
+		this.ps_material = ps_material;
+	}
+
+	public String getPs_size() {
+		return ps_size;
+	}
+
+	public void setPs_size(String ps_size) {
+		this.ps_size = ps_size;
+	}
+
+	public String getPs_height() {
+		return ps_height;
+	}
+
+	public void setPs_height(String ps_height) {
+		this.ps_height = ps_height;
+	}
+
+	public String getPs_depth() {
+		return ps_depth;
+	}
+
+	public void setPs_depth(String ps_depth) {
+		this.ps_depth = ps_depth;
+	}
+
+	public String getPs_width() {
+		return ps_width;
+	}
+
+	public void setPs_width(String ps_width) {
+		this.ps_width = ps_width;
+	}
+
+	public String getPs_volume() {
+		return ps_volume;
+	}
+
+	public void setPs_volume(String ps_volume) {
+		this.ps_volume = ps_volume;
+	}
+
+	public String getPs_weight() {
+		return ps_weight;
+	}
+
+	public void setPs_weight(String ps_weight) {
+		this.ps_weight = ps_weight;
+	}
+
 	public String getP_mainf() {
 		return p_mainf;
 	}
 
 	public void setP_mainf(String p_mainf) {
 		this.p_mainf = p_mainf;
-	}
-
-	public String getP_colorimg() {
-		return p_colorimg;
-	}
-
-	public void setP_colorimg(String p_colorimg) {
-		this.p_colorimg = p_colorimg;
-	}
-
-	public String getP_colorname() {
-		return p_colorname;
-	}
-
-	public void setP_colorname(String p_colorname) {
-		this.p_colorname = p_colorname;
-	}
-
-	public String getP_desc() {
-		return p_desc;
-	}
-
-	public void setP_desc(String p_desc) {
-		this.p_desc = p_desc;
-	}
-
-	public int getP_clickcount() {
-		return p_clickcount;
-	}
-
-	public void setP_clickcount(int p_clickcount) {
-		this.p_clickcount = p_clickcount;
-	}
-
-	public String getCtg_id() {
-		return ctg_id;
-	}
-
-	public void setCtg_id(String ctg_id) {
-		this.ctg_id = ctg_id;
 	}
 
 	public String getCtg_main() {
@@ -183,20 +191,12 @@ public class ProductDetailDto {
 		this.ctg_sub = ctg_sub;
 	}
 
-	public String getImg_thum() {
+	public MultipartFile getImg_thum() {
 		return img_thum;
 	}
 
-	public void setImg_thum(String img_thum) {
+	public void setImg_thum(MultipartFile img_thum) {
 		this.img_thum = img_thum;
-	}
-
-	public String getPs_color() {
-		return ps_color;
-	}
-
-	public void setPs_color(String ps_color) {
-		this.ps_color = ps_color;
 	}
 
 	public String getImg_01() {
@@ -247,4 +247,5 @@ public class ProductDetailDto {
 		this.img_06 = img_06;
 	}
 
+	
 }

@@ -1,29 +1,35 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dto.ProductDto;
-import com.elapid.dto.ProductListDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.ProductDao;
+import com.elapid.spring01.dao.ProductMiddleListDao;
+import com.elapid.spring01.dto.ProductListDto;
 
 public class EMiddleViewCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
+		
+		ProductMiddleListDao listDao = new ProductMiddleListDao();
+		ProductDao dao = sqlSession.getMapper(ProductDao.class);
+		
+		Map<String, Object> map = model.asMap();
+		
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String ctg_middle = request.getParameter("ctg_middle");
 		
-		ArrayList<ProductListDto> dtos = new ArrayList<ProductListDto>();
-		
-		ProductDao dao = new ProductDao();
-		
-		ProductDao countDao = new ProductDao();
-		
 		// 중분류 where 쿼리문
-		int count = countDao.productCount("where ctg_middle = '" + ctg_middle + "'");
+		int count = dao.productCountDao("where ctg_middle = '" + ctg_middle + "'");
 		
 		String tempStart = request.getParameter("page");
 		
@@ -36,10 +42,14 @@ public class EMiddleViewCommand implements ECommand {
 			startPage = (Integer.parseInt(tempStart)-1)*onePageCount;
 		}
 		
-		dtos = dao.middleList(ctg_middle, startPage, onePageCount);
+		ArrayList<ProductListDto> dtos = listDao.middleListDao(ctg_middle, startPage, onePageCount);
 
-		request.setAttribute("count", count);
-		request.setAttribute("list", dtos);
+		model.addAttribute("count", count);
+		model.addAttribute("list", dtos);
+	}
+
+	@Override
+	public void execute_session(SqlSession sqlSession, Model model, HttpSession session, HttpServletRequest request) {
 	}
 
 }

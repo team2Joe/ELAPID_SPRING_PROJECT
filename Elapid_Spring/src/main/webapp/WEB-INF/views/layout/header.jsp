@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <%
 //%@ include file="/layout/header.jsp"%
@@ -71,9 +74,9 @@ request.setCharacterEncoding("utf-8");
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 	            <li><h5>&nbsp&nbsp크기</h5></li>
 	            <li></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=small">기내용</a></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=middle">중형수화물</a></li>
-	            <li><a class="dropdown-item" href="middleView?ctg_middle=large">대형수화물</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=small">기내용</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=middle">중형수하물</a></li>
+	            <li><a class="dropdown-item" href="middleList?ctg_middle=large">대형수화물</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -118,7 +121,7 @@ request.setCharacterEncoding("utf-8");
 	      </ul>
 	      <ul class="navbar-nav">
 	        <li class="nav-item dropdown">
-	          <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link" onclick="location.href='registerProductForm'" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 	          	프레스
 	          </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">

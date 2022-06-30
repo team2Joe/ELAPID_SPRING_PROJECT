@@ -14,10 +14,22 @@
    padding : 0 0 200px 200px;
    }
 </style>
+	<div class="category-banner0">
+		<div class="image-group">
+			<div class="image-field">
+				<picture>
+				<img src="resources/elapid_img/luggage_header.png">
+				</picture>
+			</div>
+			<div class="header-field" align="center">
+				<h2>캐리어</h2>
+			</div>
+		</div>
+	</div>
 	<br> 	
 	<div class="div1">
 		<h4>필터</h4>
-		
+		<br>
 		<form action="luggageFilterList">
 			<h5>크기</h5>
 				기내용/소형 <input type="checkbox" name="ctg_middle" value="small">
@@ -40,28 +52,8 @@
 		</form>
 	</div>
 						
-	<div class="row row-cols-1 row-cols-md-3 g-4">				
-		<c:forEach items="${list }" var="dto">
-			 <div class="col">
-			    <div class="card h-100" align="center">
-		    	  <a href="detailView.do?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
-			      <img src="${dto.img_thum }" alt="..." align="center">
-			      <div class="card-body">
-			        <h5 class="card-title">${dto.p_name }</h5>
-			      </a>
-			        <h6 class="card-price">${dto.p_price } won</h6>
-			        <div class="attribute">	
-						
-					</div>
-			      </div>
-			      <div class="card-footer">
-			 	<%-- 아이디값 null시 비회원 장바구니로 들어가기 --%>
-			      	<button class="btn btn-dark" onclick = "location.href='addCart.do?p_id=${dto.p_id}'" >장바구니 담기</button>
-			      </div>
-			    </div>
-			  </div>		
-		</c:forEach>
-			</div>
+	<%@ include file="layout/productList.jsp" %>
+	
 		<br>	
 		<div align="center">
 			<tr>
@@ -107,7 +99,7 @@
 				}		
 			}
 			// luggageFilterList 페이지 수
-			int count = (int)request.getAttribute("count");	
+			int count = (Integer)request.getAttribute("count");	
 	
 			for(int i=1; i<=count; i++){
 	%>			

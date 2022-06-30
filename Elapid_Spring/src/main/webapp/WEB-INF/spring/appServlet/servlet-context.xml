@@ -31,11 +31,17 @@
 		<beans:property name="username" value="root"/>
 		<beans:property name="password" value="qwer1234"/>
 	</beans:bean>
+	
+	<!-- Spring JDBC -->
+	<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="dataSource"/>
+	 </beans:bean>
 
 	<beans:bean name="sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref = "dataSource" />		
 		<beans:property name="mapperLocations" value="classpath:com/elapid/spring01/dao/mapper/*.xml" />
 	</beans:bean>
+	
 	<beans:bean name="sqlSession" class = "org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
@@ -50,20 +56,22 @@
 	
 	
 	<beans:bean name="luggageList" class="com.elapid.spring01.command.ELuggageListCommand" />
+	<beans:bean name="middleList" class="com.elapid.spring01.command.EMiddleViewCommand" />
 	<beans:bean name="luggageFilterList" class="com.elapid.spring01.command.ELuggageFilterListCommand" />
-	<!-- <beans:bean name="interestedProductList" class="com.elapid.spring01.command.EInterestedProductListCommand" />
-	 <beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
-	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> -->
+	<beans:bean name="interestedProductList" class="com.elapid.spring01.command.EInterestedProductListCommand" />
+	<beans:bean name="search" class="com.elapid.spring01.command.ESearchCommand" />  
+	<beans:bean name="detailView" class="com.elapid.spring01.command.EDetailViewCommand" /> 
+	<beans:bean name="registerProduct" class="com.elapid.spring01.command.ERegisterProductCommand"/>
+<!-- 	<beans:bean name="modifyProductForm" class="com.elapid.spring01.command.EModifyProductFormCommand"/> -->
+<!-- 	<beans:bean name="modifyProduct" class="com.elapid.spring01.command.EModifyProductCommand"/> -->
+<!-- 	<beans:bean name="deleteProduct" class="com.elapid.spring01.command.EDeleteProductCommand"/> -->
+	
+	<!-- AdminProductdao -->
+<!-- 	<beans:bean name="selectPidNumDao" class="com.elapid.spring01.dao.AdminProductDao"/> -->
+<!-- 	<beans:bean name="insertRelationProductForeignKeyDao" class="com.elapid.spring01.dao.AdminProductDao"/> -->
 
-
-	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" ></beans:bean>
-	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" ></beans:bean>
-
-	
-	
-	
-	
-	
+	<beans:bean name="addCart" class="com.elapid.spring01.command.ECartAddCommand" />
+	<beans:bean name="cartView" class="com.elapid.spring01.command.ECartViewCommand" />
 	
 	
 </beans:beans>

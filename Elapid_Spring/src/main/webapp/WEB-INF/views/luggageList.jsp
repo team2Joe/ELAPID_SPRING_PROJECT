@@ -53,42 +53,27 @@ padding : 0 0 200px 200px;
 					</form>
 			</div>
 			
-			<div class="row row-cols-1 row-cols-md-3 g-4">	
-	 			<c:forEach items="${list }" var="dto">
-				 <div class="col">
-				    <div class="card h-100" align="center">
-			    	  <a href="detailView.do?p_id=${dto.p_id }&ctg_middle=${dto.ctg_middle }">
-				      <img src="${dto.img_thum }" alt="..." align="center">
-				      <div class="card-body">
-				        <h5 class="card-title">${dto.p_name }</h5>
-				      </a>
-				        <h6 class="card-price">${dto.p_price } won</h6>
-				        <div class="attribute">	
-							
-						</div>
-				      </div>
-				      <div class="card-footer">
-							<button class="btn btn-dark" onclick = "location.href='addCart?p_id=${dto.p_id}'">장바구니 담기</button>
-				      </div>
-				    </div>
-				  </div>	
-				</c:forEach>
-			</div>
+			<%--상품 카드 부분 --%>
+			<%@ include file="layout/productList.jsp" %>
 
 		<br>
+
 		<div align ="center">
 				<tr>
 					<td>
-						<!-- 페이징 처리 -->
+						<%--
+							페이징 처리 
+							초기에 1~3 페이지까지 화면에 보이게하고 그 이후는 next버튼
+							next버튼 클릭시 4~6 페이지 보이게 하기
+						--%>
 						<c:forEach var="i" begin="1" end="${count }">
 							<button onclick="location.href='luggageList?page=${i}'">${i}</button>
 						</c:forEach>				
-
-		
 					<td>
 				</tr>
 		</div>		
-		<%@ include file="layout/footer.jsp"%>	
+		
+<%@ include file="layout/footer.jsp"%>	
 		
 		
 		

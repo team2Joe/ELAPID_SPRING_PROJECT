@@ -18,7 +18,6 @@ public class ELuggageFilterListCommand implements ECommand {
 	public void execute(SqlSession sqlSession, Model model) {
 		
 			ProductDao dao = sqlSession.getMapper(ProductDao.class);
-		
 			Map<String, Object> map = model.asMap();
 			HttpServletRequest request = (HttpServletRequest)map.get("request");
 			
@@ -52,7 +51,6 @@ public class ELuggageFilterListCommand implements ECommand {
 							queryValuesMainf[i] = " or p_mainf = '" + p_mainf[i] + "'";
 						}
 						query += queryValuesMainf[i];
-						
 					}
 				}
 			}
@@ -119,9 +117,6 @@ public class ELuggageFilterListCommand implements ECommand {
 									// 2번째 페이지 부터 onePageCount단위로 startPage가 변경됨
 				startPage = (Integer.parseInt(tempStart)-1)*onePageCount;
 			}
-			
-			
-	
 			System.out.println(count);
 			
 			// 페이지 수 request로 보내기
@@ -133,7 +128,6 @@ public class ELuggageFilterListCommand implements ECommand {
 			model.addAttribute("p_mainf", p_mainf);
 			
 			model.addAttribute("list", dao.luggageFilterListDao(ctg_middle, ps_color, p_mainf, startPage, onePageCount));
-
 			
 	}
 

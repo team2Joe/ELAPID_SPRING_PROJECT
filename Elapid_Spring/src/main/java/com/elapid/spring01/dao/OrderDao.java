@@ -93,9 +93,7 @@ public class OrderDao {
 					String img_thum = rs.getString("img_thum");
 					String ps_color = rs.getString("ps_color");
 					
-					ProductListDto dto = new ProductListDto(sp_id, p_name, p_stock, price, discountPrice,
-							p_size, p_mainf, p_colorimg, p_colorname, p_date, p_desc, p_clickcount,
-							ctg_id, ctg_main, ctg_middle, ctg_sub, img_thum, ps_color);
+					ProductListDto dto = new ProductListDto();
 					
 					dtos.add(dto);
 					

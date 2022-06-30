@@ -45,7 +45,6 @@ public class ELuggageListCommand implements ECommand {
 
 		model.addAttribute("count", count);
 		model.addAttribute("list", dao.luggageListDao(startPage, onePageCount));
-		
 	}
 
 	@Override

@@ -1,30 +1,36 @@
-package com.elapid.command;
+package com.elapid.spring01.command;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.elapid.dao.ProductDao;
-import com.elapid.dto.ProductDetailDto;
-import com.elapid.dto.ProductDto;
-import com.elapid.dto.ProductListDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.elapid.spring01.dao.ProductDao;
 
 public class EDetailViewCommand implements ECommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(SqlSession sqlSession, Model model) {
 		
-		String p_id = request.getParameter("p_id");
+		ProductDao dao = sqlSession.getMapper(ProductDao.class);
 		
-		ProductDetailDto dtos = new ProductDetailDto();
+		Map<String, Object> map = model.asMap();
 		
-		ProductDao dao = new ProductDao();
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		dtos = dao.detailView(p_id);
+		String p_id = request.getParameter("p_id");	
 		
-		request.setAttribute("detailView", dtos);
-
+		// 조회수 증가
+		dao.increaseDetailView(p_id);
+		
+		model.addAttribute("detailView", dao.detailViewDao(p_id));
 	}
+
+	@Override
+	public void execute_session(SqlSession sqlSession, Model model,
+			HttpSession session, HttpServletRequest request) {}
 
 }
